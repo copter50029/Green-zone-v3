@@ -1,0 +1,3863 @@
+{
+  "type": "FeatureCollection",
+  "target": "eligible_green",
+  "purpose": "area_exclusion",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "Theos00-housing-block-user-correction-001",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.58593411123933,
+              13.919075149623277
+            ],
+            [
+              100.59668662791915,
+              13.916347514547388
+            ],
+            [
+              100.5957258885696,
+              13.913886173968855
+            ],
+            [
+              100.58519683561795,
+              13.91680212263173
+            ],
+            [
+              100.58593411123933,
+              13.919075149623277
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "object_type": "residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "policy_decision": "exclude_residential_context",
+        "reviewer": "Codex visual interpretation following user correction",
+        "observed_on": "2026-10-25",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "source_preview": "Theos00/source.png",
+        "preview_size": [
+          1000,
+          1000
+        ],
+        "preview_ring": [
+          [
+            225,
+            603
+          ],
+          [
+            613,
+            701
+          ],
+          [
+            579,
+            792
+          ],
+          [
+            199,
+            687
+          ],
+          [
+            225,
+            603
+          ]
+        ],
+        "reason": "Residential block visible below the airport apron; user explicitly rejected counting house trees. Excluded conservatively, not a cadastral claim."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos00-housing-review-r05-c06",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.59360265230336,
+              13.924077909133622
+            ],
+            [
+              100.59591600521095,
+              13.924062770564635
+            ],
+            [
+              100.5959004968936,
+              13.921803139056783
+            ],
+            [
+              100.59358716644282,
+              13.921818275073344
+            ],
+            [
+              100.59360265230336,
+              13.924077909133622
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos00-r05-c06",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos00-housing-review-r05-c07",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.59591600521095,
+              13.924062770564635
+            ],
+            [
+              100.59822935534996,
+              13.92404761005743
+            ],
+            [
+              100.59821382457594,
+              13.921787981105705
+            ],
+            [
+              100.5959004968936,
+              13.921803139056783
+            ],
+            [
+              100.59591600521095,
+              13.924062770564635
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos00-r05-c07",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos00-housing-review-r05-c08",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.59822935534996,
+              13.92404761005743
+            ],
+            [
+              100.60054270271638,
+              13.924032427612133
+            ],
+            [
+              100.6005271494858,
+              13.92177280122023
+            ],
+            [
+              100.59821382457594,
+              13.921787981105705
+            ],
+            [
+              100.59822935534996,
+              13.92404761005743
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos00-r05-c08",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos00-housing-review-r06-c00",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.57970712582495,
+              13.921908630541068
+            ],
+            [
+              100.58202047280231,
+              13.921893626134148
+            ],
+            [
+              100.58200510197211,
+              13.919633978932447
+            ],
+            [
+              100.57969177744832,
+              13.919648980809182
+            ],
+            [
+              100.57970712582495,
+              13.921908630541068
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos00-r06-c00",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos00-housing-review-r06-c02",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.58433381703526,
+              13.921878599791986
+            ],
+            [
+              100.5866471585198,
+              13.921863551514704
+            ],
+            [
+              100.58663174278286,
+              13.919603909384477
+            ],
+            [
+              100.58431842375163,
+              13.919618955124172
+            ],
+            [
+              100.58433381703526,
+              13.921878599791986
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos00-r06-c02",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos00-housing-review-r06-c05",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.59127383322758,
+              13.921833389155264
+            ],
+            [
+              100.59358716644282,
+              13.921818275073344
+            ],
+            [
+              100.59357168334672,
+              13.919558640578064
+            ],
+            [
+              100.59125837258442,
+              13.919573752111301
+            ],
+            [
+              100.59127383322758,
+              13.921833389155264
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos00-r06-c05",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos00-housing-review-r07-c00",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.57969177744832,
+              13.919648980809182
+            ],
+            [
+              100.58200510197211,
+              13.919633978932447
+            ],
+            [
+              100.58198973388619,
+              13.917374331296049
+            ],
+            [
+              100.57967643181195,
+              13.917389330642642
+            ],
+            [
+              100.57969177744832,
+              13.919648980809182
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos00-r07-c00",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos00-housing-review-r07-c02",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.58431842375163,
+              13.919618955124172
+            ],
+            [
+              100.58663174278286,
+              13.919603909384477
+            ],
+            [
+              100.5866163297982,
+              13.917344266819454
+            ],
+            [
+              100.58430303321629,
+              13.917359310021613
+            ],
+            [
+              100.58431842375163,
+              13.919618955124172
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos00-r07-c02",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos00-housing-review-r08-c01",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.58198973388619,
+              13.917374331296049
+            ],
+            [
+              100.58430303321629,
+              13.917359310021613
+            ],
+            [
+              100.58428764542909,
+              13.91509966448437
+            ],
+            [
+              100.58197436854442,
+              13.915114683225013
+            ],
+            [
+              100.58198973388619,
+              13.917374331296049
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos00-r08-c01",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos00-housing-review-r08-c02",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.58430303321629,
+              13.917359310021613
+            ],
+            [
+              100.5866163297982,
+              13.917344266819454
+            ],
+            [
+              100.58660091956574,
+              13.915084623819704
+            ],
+            [
+              100.58428764542909,
+              13.91509966448437
+            ],
+            [
+              100.58430303321629,
+              13.917359310021613
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos00-r08-c02",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r01-c02",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.8878686484792,
+              12.696123208618356
+            ],
+            [
+              100.89017001352026,
+              12.696106830130747
+            ],
+            [
+              100.89015332299151,
+              12.693847336090794
+            ],
+            [
+              100.88785197824247,
+              12.693863711569652
+            ],
+            [
+              100.8878686484792,
+              12.696123208618356
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r01-c02",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r02-c06",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.89705733792432,
+              12.693798090122186
+            ],
+            [
+              100.89935866978412,
+              12.693781634955737
+            ],
+            [
+              100.89934190132078,
+              12.691522152581856
+            ],
+            [
+              100.89704058974854,
+              12.691538604724965
+            ],
+            [
+              100.89705733792432,
+              12.693798090122186
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r02-c06",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r03-c07",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.89934190132078,
+              12.691522152581856
+            ],
+            [
+              100.90164320966107,
+              12.691505680520834
+            ],
+            [
+              100.90162642414617,
+              12.689246200768439
+            ],
+            [
+              100.89932513608939,
+              12.689262669802513
+            ],
+            [
+              100.89934190132078,
+              12.691522152581856
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r03-c07",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r04-c07",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.89932513608939,
+              12.689262669802513
+            ],
+            [
+              100.90162642414617,
+              12.689246200768439
+            ],
+            [
+              100.90160964186698,
+              12.686986720610602
+            ],
+            [
+              100.89930837408981,
+              12.687003186617776
+            ],
+            [
+              100.89932513608939,
+              12.689262669802513
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r04-c07",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r04-c08",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.90162642414617,
+              12.689246200768439
+            ],
+            [
+              100.90392770896723,
+              12.689229711820246
+            ],
+            [
+              100.9039109064086,
+              12.686970234692964
+            ],
+            [
+              100.90160964186698,
+              12.686986720610602
+            ],
+            [
+              100.90162642414617,
+              12.689246200768439
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r04-c08",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r04-c09",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.90392770896723,
+              12.689229711820246
+            ],
+            [
+              100.90622899054866,
+              12.689213202958063
+            ],
+            [
+              100.90621216771069,
+              12.686953728864996
+            ],
+            [
+              100.9039109064086,
+              12.686970234692964
+            ],
+            [
+              100.90392770896723,
+              12.689229711820246
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r04-c09",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r04-c11",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.90853026888655,
+              12.689196674182012
+            ],
+            [
+              100.91083154397698,
+              12.689180125492234
+            ],
+            [
+              100.91081468058077,
+              12.68692065747858
+            ],
+            [
+              100.90851342576939,
+              12.686937203126822
+            ],
+            [
+              100.90853026888655,
+              12.689196674182012
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r04-c11",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r05-c06",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.89700710308095,
+              12.68701963271436
+            ],
+            [
+              100.89930837408981,
+              12.687003186617776
+            ],
+            [
+              100.8992916153219,
+              12.684743703027713
+            ],
+            [
+              100.89699036458889,
+              12.684760146101109
+            ],
+            [
+              100.89700710308095,
+              12.68701963271436
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r05-c06",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r05-c07",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.89930837408981,
+              12.687003186617776
+            ],
+            [
+              100.90160964186698,
+              12.686986720610602
+            ],
+            [
+              100.90159286282339,
+              12.684727240047383
+            ],
+            [
+              100.8992916153219,
+              12.684743703027713
+            ],
+            [
+              100.89930837408981,
+              12.687003186617776
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r05-c07",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r05-c08",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.90160964186698,
+              12.686986720610602
+            ],
+            [
+              100.9039109064086,
+              12.686970234692964
+            ],
+            [
+              100.90389410708944,
+              12.684710757160252
+            ],
+            [
+              100.90159286282339,
+              12.684727240047383
+            ],
+            [
+              100.90160964186698,
+              12.686986720610602
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r05-c08",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r05-c09",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.9039109064086,
+              12.686970234692964
+            ],
+            [
+              100.90621216771069,
+              12.686953728864996
+            ],
+            [
+              100.90619534811613,
+              12.684694254366446
+            ],
+            [
+              100.90389410708944,
+              12.684710757160252
+            ],
+            [
+              100.9039109064086,
+              12.686970234692964
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r05-c09",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r06-c03",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.89008659303963,
+              12.684809355878397
+            ],
+            [
+              100.89238785344384,
+              12.68479297252658
+            ],
+            [
+              100.89237115872363,
+              12.682533479472836
+            ],
+            [
+              100.89006991859176,
+              12.682549859812493
+            ],
+            [
+              100.89008659303963,
+              12.684809355878397
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r06-c03",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r06-c08",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.90159286282339,
+              12.684727240047383
+            ],
+            [
+              100.90389410708944,
+              12.684710757160252
+            ],
+            [
+              100.90387731100964,
+              12.682451279222178
+            ],
+            [
+              100.90157608701524,
+              12.68246775907886
+            ],
+            [
+              100.90159286282339,
+              12.684727240047383
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r06-c08",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r07-c06",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.89697362932444,
+              12.682500659082654
+            ],
+            [
+              100.89927485978555,
+              12.682484219032395
+            ],
+            [
+              100.89925810748059,
+              12.680224734631887
+            ],
+            [
+              100.89695689728748,
+              12.680241171659063
+            ],
+            [
+              100.89697362932444,
+              12.682500659082654
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r07-c06",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r07-c07",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.89927485978555,
+              12.682484219032395
+            ],
+            [
+              100.90157608701524,
+              12.68246775907886
+            ],
+            [
+              100.90155931444242,
+              12.680208277705093
+            ],
+            [
+              100.89925810748059,
+              12.680224734631887
+            ],
+            [
+              100.89927485978555,
+              12.682484219032395
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r07-c07",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r07-c08",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.90157608701524,
+              12.68246775907886
+            ],
+            [
+              100.90387731100964,
+              12.682451279222178
+            ],
+            [
+              100.90386051816908,
+              12.680191800878816
+            ],
+            [
+              100.90155931444242,
+              12.680208277705093
+            ],
+            [
+              100.90157608701524,
+              12.68246775907886
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r07-c08",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r08-c06",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.89695689728748,
+              12.680241171659063
+            ],
+            [
+              100.89925810748059,
+              12.680224734631887
+            ],
+            [
+              100.8992413584069,
+              12.677965249826254
+            ],
+            [
+              100.8969401684779,
+              12.677981683830401
+            ],
+            [
+              100.89695689728748,
+              12.680241171659063
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r08-c06",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r08-c07",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.89925810748059,
+              12.680224734631887
+            ],
+            [
+              100.90155931444242,
+              12.680208277705093
+            ],
+            [
+              100.90154254510476,
+              12.677948795926156
+            ],
+            [
+              100.8992413584069,
+              12.677965249826254
+            ],
+            [
+              100.89925810748059,
+              12.680224734631887
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r08-c07",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r08-c08",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.90155931444242,
+              12.680208277705093
+            ],
+            [
+              100.90386051816908,
+              12.680191800878816
+            ],
+            [
+              100.9038437285676,
+              12.67793232213023
+            ],
+            [
+              100.90154254510476,
+              12.677948795926156
+            ],
+            [
+              100.90155931444242,
+              12.680208277705093
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r08-c08",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r09-c08",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.90154254510476,
+              12.677948795926156
+            ],
+            [
+              100.9038437285676,
+              12.67793232213023
+            ],
+            [
+              100.90382694220506,
+              12.675672842976487
+            ],
+            [
+              100.90152577900214,
+              12.675689313742112
+            ],
+            [
+              100.90154254510476,
+              12.677948795926156
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r09-c08",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r10-c07",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.89922461256432,
+              12.67570576461557
+            ],
+            [
+              100.90152577900214,
+              12.675689313742112
+            ],
+            [
+              100.90150901613443,
+              12.673429831153035
+            ],
+            [
+              100.89920786995276,
+              12.673446278999904
+            ],
+            [
+              100.89922461256432,
+              12.67570576461557
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r10-c07",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r10-c08",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.90152577900214,
+              12.675689313742112
+            ],
+            [
+              100.90382694220506,
+              12.675672842976487
+            ],
+            [
+              100.90381015908133,
+              12.673413363417659
+            ],
+            [
+              100.90150901613443,
+              12.673429831153035
+            ],
+            [
+              100.90152577900214,
+              12.675689313742112
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r10-c08",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos01-housing-review-r11-c08",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.90150901613443,
+              12.673429831153035
+            ],
+            [
+              100.90381015908133,
+              12.673413363417659
+            ],
+            [
+              100.90379337919627,
+              12.67115388345381
+            ],
+            [
+              100.90149225650147,
+              12.671170348158986
+            ],
+            [
+              100.90150901613443,
+              12.673429831153035
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos01-r11-c08",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r00-c08",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.5401623334865,
+              13.880879874329729
+            ],
+            [
+              100.54247531685296,
+              13.880865287380676
+            ],
+            [
+              100.54246037608142,
+              13.878605589811762
+            ],
+            [
+              100.54014741509745,
+              13.87862017429426
+            ],
+            [
+              100.5401623334865,
+              13.880879874329729
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r00-c08",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r01-c08",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.54014741509745,
+              13.87862017429426
+            ],
+            [
+              100.54246037608142,
+              13.878605589811762
+            ],
+            [
+              100.54244543798386,
+              13.876345891810141
+            ],
+            [
+              100.54013249937837,
+              13.876360473826127
+            ],
+            [
+              100.54014741509745,
+              13.87862017429426
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r01-c08",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r02-c07",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.53781955810304,
+              13.876375033979707
+            ],
+            [
+              100.54013249937837,
+              13.876360473826127
+            ],
+            [
+              100.54011758632916,
+              13.87410077292539
+            ],
+            [
+              100.53780466742842,
+              13.874115330616204
+            ],
+            [
+              100.53781955810304,
+              13.876375033979707
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r02-c07",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r02-c08",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.54013249937837,
+              13.876360473826127
+            ],
+            [
+              100.54244543798386,
+              13.876345891810141
+            ],
+            [
+              100.54243050256017,
+              13.874086193375868
+            ],
+            [
+              100.54011758632916,
+              13.87410077292539
+            ],
+            [
+              100.54013249937837,
+              13.876360473826127
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r02-c08",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r03-c00",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.52161416070727,
+              13.874216622398432
+            ],
+            [
+              100.52392709818396,
+              13.874202217721795
+            ],
+            [
+              100.5239123444012,
+              13.871942499227119
+            ],
+            [
+              100.52159942929595,
+              13.87195690146692
+            ],
+            [
+              100.52161416070727,
+              13.874216622398432
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r03-c00",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r03-c01",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.52392709818396,
+              13.874202217721795
+            ],
+            [
+              100.52624003301898,
+              13.874187791185642
+            ],
+            [
+              100.52622525686488,
+              13.871928075131502
+            ],
+            [
+              100.5239123444012,
+              13.871942499227119
+            ],
+            [
+              100.52392709818396,
+              13.874202217721795
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r03-c01",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r03-c06",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.53549174586196,
+              13.874129866448198
+            ],
+            [
+              100.53780466742842,
+              13.874115330616204
+            ],
+            [
+              100.53778977941951,
+              13.871855626820208
+            ],
+            [
+              100.53547688022377,
+              13.871870160193179
+            ],
+            [
+              100.53549174586196,
+              13.874129866448198
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r03-c06",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r03-c07",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.53780466742842,
+              13.874115330616204
+            ],
+            [
+              100.54011758632916,
+              13.87410077292539
+            ],
+            [
+              100.54010267594967,
+              13.871841071592112
+            ],
+            [
+              100.53778977941951,
+              13.871855626820208
+            ],
+            [
+              100.53780466742842,
+              13.874115330616204
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r03-c07",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r03-c08",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.54011758632916,
+              13.87410077292539
+            ],
+            [
+              100.54243050256017,
+              13.874086193375868
+            ],
+            [
+              100.5424155698102,
+              13.87182649450901
+            ],
+            [
+              100.54010267594967,
+              13.871841071592112
+            ],
+            [
+              100.54011758632916,
+              13.87410077292539
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r03-c08",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r04-c00",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.52159942929595,
+              13.87195690146692
+            ],
+            [
+              100.5239123444012,
+              13.871942499227119
+            ],
+            [
+              100.52389759326,
+              13.869682780300295
+            ],
+            [
+              100.5215847005222,
+              13.869697180103303
+            ],
+            [
+              100.52159942929595,
+              13.87195690146692
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r04-c00",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r04-c01",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.5239123444012,
+              13.871942499227119
+            ],
+            [
+              100.52622525686488,
+              13.871928075131502
+            ],
+            [
+              100.52621048335635,
+              13.869668358645171
+            ],
+            [
+              100.52389759326,
+              13.869682780300295
+            ],
+            [
+              100.5239123444012,
+              13.871942499227119
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r04-c01",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r04-c06",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.53547688022377,
+              13.871870160193179
+            ],
+            [
+              100.53778977941951,
+              13.871855626820208
+            ],
+            [
+              100.53777489407621,
+              13.86959592259179
+            ],
+            [
+              100.53546201724718,
+              13.86961045350578
+            ],
+            [
+              100.53547688022377,
+              13.871870160193179
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r04-c06",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r04-c07",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.53778977941951,
+              13.871855626820208
+            ],
+            [
+              100.54010267594967,
+              13.871841071592112
+            ],
+            [
+              100.54008776823977,
+              13.869581369826372
+            ],
+            [
+              100.53777489407621,
+              13.86959592259179
+            ],
+            [
+              100.53778977941951,
+              13.871855626820208
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r04-c07",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r05-c00",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.5215847005222,
+              13.869697180103303
+            ],
+            [
+              100.52389759326,
+              13.869682780300295
+            ],
+            [
+              100.52388284476027,
+              13.86742306094138
+            ],
+            [
+              100.5215699743859,
+              13.86743745830764
+            ],
+            [
+              100.5215847005222,
+              13.869697180103303
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r05-c00",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r05-c01",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.52389759326,
+              13.869682780300295
+            ],
+            [
+              100.52621048335635,
+              13.869668358645171
+            ],
+            [
+              100.52619571249329,
+              13.8674086417267
+            ],
+            [
+              100.52388284476027,
+              13.86742306094138
+            ],
+            [
+              100.52389759326,
+              13.869682780300295
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r05-c01",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r05-c03",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.52852337080725,
+              13.869653915138038
+            ],
+            [
+              100.53083625560869,
+              13.86963944977902
+            ],
+            [
+              100.53082144001935,
+              13.867379737752536
+            ],
+            [
+              100.528508577581,
+              13.867394200663712
+            ],
+            [
+              100.52852337080725,
+              13.869653915138038
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r05-c03",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r05-c06",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.53546201724718,
+              13.86961045350578
+            ],
+            [
+              100.53777489407621,
+              13.86959592259179
+            ],
+            [
+              100.53776001139839,
+              13.867336217931008
+            ],
+            [
+              100.53544715693207,
+              13.867350746386068
+            ],
+            [
+              100.53546201724718,
+              13.86961045350578
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r05-c06",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r05-c10",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.54471350855442,
+              13.869552198741722
+            ],
+            [
+              100.54702637469752,
+              13.869537580422715
+            ],
+            [
+              100.5470114025701,
+              13.867277885634639
+            ],
+            [
+              100.54469855878922,
+              13.86729250147992
+            ],
+            [
+              100.54471350855442,
+              13.869552198741722
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r05-c10",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r06-c01",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.52388284476027,
+              13.86742306094138
+            ],
+            [
+              100.52619571249329,
+              13.8674086417267
+            ],
+            [
+              100.52618094427555,
+              13.865148924376165
+            ],
+            [
+              100.52386809890184,
+              13.865163341150444
+            ],
+            [
+              100.52388284476027,
+              13.86742306094138
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r06-c01",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r06-c04",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.53082144001935,
+              13.867379737752536
+            ],
+            [
+              100.53313429980439,
+              13.867365252993283
+            ],
+            [
+              100.53311946450944,
+              13.86510554298613
+            ],
+            [
+              100.53080662708336,
+              13.865120025293892
+            ],
+            [
+              100.53082144001935,
+              13.867379737752536
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r06-c04",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r06-c06",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.53544715693207,
+              13.867350746386068
+            ],
+            [
+              100.53776001139839,
+              13.867336217931008
+            ],
+            [
+              100.5377451313859,
+              13.865076512837934
+            ],
+            [
+              100.5354322992783,
+              13.865091038834105
+            ],
+            [
+              100.53544715693207,
+              13.867350746386068
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r06-c06",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r06-c07",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.53776001139839,
+              13.867336217931008
+            ],
+            [
+              100.54007286319936,
+              13.86732166762822
+            ],
+            [
+              100.5400579608283,
+              13.86506196499773
+            ],
+            [
+              100.5377451313859,
+              13.865076512837934
+            ],
+            [
+              100.53776001139839,
+              13.867336217931008
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r06-c07",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r06-c08",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.54007286319936,
+              13.86732166762822
+            ],
+            [
+              100.54238571233097,
+              13.867307095477818
+            ],
+            [
+              100.54237078760146,
+              13.865047395313608
+            ],
+            [
+              100.5400579608283,
+              13.86506196499773
+            ],
+            [
+              100.54007286319936,
+              13.86732166762822
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r06-c08",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r06-c09",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.54238571233097,
+              13.867307095477818
+            ],
+            [
+              100.54469855878922,
+              13.86729250147992
+            ],
+            [
+              100.54468361170137,
+              13.86503280378569
+            ],
+            [
+              100.54237078760146,
+              13.865047395313608
+            ],
+            [
+              100.54238571233097,
+              13.867307095477818
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r06-c09",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r06-c10",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.54469855878922,
+              13.86729250147992
+            ],
+            [
+              100.5470114025701,
+              13.867277885634639
+            ],
+            [
+              100.54699643312404,
+              13.865018190414084
+            ],
+            [
+              100.54468361170137,
+              13.86503280378569
+            ],
+            [
+              100.54469855878922,
+              13.86729250147992
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r06-c10",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r07-c00",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.5215552508869,
+              13.865177736080005
+            ],
+            [
+              100.52386809890184,
+              13.865163341150444
+            ],
+            [
+              100.52385335568464,
+              13.862903620927556
+            ],
+            [
+              100.52154053002513,
+              13.862918013420456
+            ],
+            [
+              100.5215552508869,
+              13.865177736080005
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r07-c00",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r07-c01",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.52386809890184,
+              13.865163341150444
+            ],
+            [
+              100.52618094427555,
+              13.865148924376165
+            ],
+            [
+              100.52616617870304,
+              13.862889206593632
+            ],
+            [
+              100.52385335568464,
+              13.862903620927556
+            ],
+            [
+              100.52386809890184,
+              13.865163341150444
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r07-c01",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r07-c02",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.52618094427555,
+              13.865148924376165
+            ],
+            [
+              100.52849378700407,
+              13.865134485757276
+            ],
+            [
+              100.52847899907637,
+              13.862874770418795
+            ],
+            [
+              100.52616617870304,
+              13.862889206593632
+            ],
+            [
+              100.52618094427555,
+              13.865148924376165
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r07-c02",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r07-c04",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.53080662708336,
+              13.865120025293892
+            ],
+            [
+              100.53311946450944,
+              13.86510554298613
+            ],
+            [
+              100.53310463187172,
+              13.862845832546842
+            ],
+            [
+              100.53079181680059,
+              13.862860312403159
+            ],
+            [
+              100.53080662708336,
+              13.865120025293892
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r07-c04",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r07-c05",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.53311946450944,
+              13.86510554298613
+            ],
+            [
+              100.5354322992783,
+              13.865091038834105
+            ],
+            [
+              100.53541744428576,
+              13.86283133084996
+            ],
+            [
+              100.53310463187172,
+              13.862845832546842
+            ],
+            [
+              100.53311946450944,
+              13.86510554298613
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r07-c05",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r07-c06",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.5354322992783,
+              13.865091038834105
+            ],
+            [
+              100.5377451313859,
+              13.865076512837934
+            ],
+            [
+              100.53773025403868,
+              13.862816807312631
+            ],
+            [
+              100.53541744428576,
+              13.86283133084996
+            ],
+            [
+              100.5354322992783,
+              13.865091038834105
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r07-c06",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r07-c07",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.5377451313859,
+              13.865076512837934
+            ],
+            [
+              100.5400579608283,
+              13.86506196499773
+            ],
+            [
+              100.5400430611265,
+              13.862802261934965
+            ],
+            [
+              100.53773025403868,
+              13.862816807312631
+            ],
+            [
+              100.5377451313859,
+              13.865076512837934
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r07-c07",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r07-c08",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.5400579608283,
+              13.86506196499773
+            ],
+            [
+              100.54237078760146,
+              13.865047395313608
+            ],
+            [
+              100.54235586554519,
+              13.862787694717083
+            ],
+            [
+              100.5400430611265,
+              13.862802261934965
+            ],
+            [
+              100.5400579608283,
+              13.86506196499773
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r07-c08",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r07-c09",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.54237078760146,
+              13.865047395313608
+            ],
+            [
+              100.54468361170137,
+              13.86503280378569
+            ],
+            [
+              100.54466866729078,
+              13.862773105659095
+            ],
+            [
+              100.54235586554519,
+              13.862787694717083
+            ],
+            [
+              100.54237078760146,
+              13.865047395313608
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r07-c09",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r07-c10",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.54468361170137,
+              13.86503280378569
+            ],
+            [
+              100.54699643312404,
+              13.865018190414084
+            ],
+            [
+              100.54698146635924,
+              13.86275849476112
+            ],
+            [
+              100.54466866729078,
+              13.862773105659095
+            ],
+            [
+              100.54468361170137,
+              13.86503280378569
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r07-c10",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r08-c01",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.52385335568464,
+              13.862903620927556
+            ],
+            [
+              100.52616617870304,
+              13.862889206593632
+            ],
+            [
+              100.52615141577562,
+              13.860629488379157
+            ],
+            [
+              100.5238386151085,
+              13.860643900272777
+            ],
+            [
+              100.52385335568464,
+              13.862903620927556
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r08-c01",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r08-c02",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.52616617870304,
+              13.862889206593632
+            ],
+            [
+              100.52847899907637,
+              13.862874770418795
+            ],
+            [
+              100.52846421379775,
+              13.860615054648328
+            ],
+            [
+              100.52615141577562,
+              13.860629488379157
+            ],
+            [
+              100.52616617870304,
+              13.862889206593632
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r08-c02",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r08-c04",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.53079181680059,
+              13.862860312403159
+            ],
+            [
+              100.53310463187172,
+              13.862845832546842
+            ],
+            [
+              100.53308980189111,
+              13.860586121675482
+            ],
+            [
+              100.53077700917092,
+              13.860600599080394
+            ],
+            [
+              100.53079181680059,
+              13.862860312403159
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r08-c04",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r08-c05",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.53310463187172,
+              13.862845832546842
+            ],
+            [
+              100.53541744428576,
+              13.86283133084996
+            ],
+            [
+              100.53540259195432,
+              13.8605716224337
+            ],
+            [
+              100.53308980189111,
+              13.860586121675482
+            ],
+            [
+              100.53310463187172,
+              13.862845832546842
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r08-c05",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r08-c06",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.53541744428576,
+              13.86283133084996
+            ],
+            [
+              100.53773025403868,
+              13.862816807312631
+            ],
+            [
+              100.53771537935656,
+              13.86055710135516
+            ],
+            [
+              100.53540259195432,
+              13.8605716224337
+            ],
+            [
+              100.53541744428576,
+              13.86283133084996
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r08-c06",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r08-c07",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.53773025403868,
+              13.862816807312631
+            ],
+            [
+              100.5400430611265,
+              13.862802261934965
+            ],
+            [
+              100.54002816409378,
+              13.860542558439986
+            ],
+            [
+              100.53771537935656,
+              13.86055710135516
+            ],
+            [
+              100.53773025403868,
+              13.862816807312631
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r08-c07",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r08-c08",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.5400430611265,
+              13.862802261934965
+            ],
+            [
+              100.54235586554519,
+              13.862787694717083
+            ],
+            [
+              100.54234094616204,
+              13.860527993688295
+            ],
+            [
+              100.54002816409378,
+              13.860542558439986
+            ],
+            [
+              100.5400430611265,
+              13.862802261934965
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r08-c08",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r08-c09",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.54235586554519,
+              13.862787694717083
+            ],
+            [
+              100.54466866729078,
+              13.862773105659095
+            ],
+            [
+              100.5446537255573,
+              13.860513407100195
+            ],
+            [
+              100.54234094616204,
+              13.860527993688295
+            ],
+            [
+              100.54235586554519,
+              13.862787694717083
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r08-c09",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r08-c11",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.54698146635924,
+              13.86275849476112
+            ],
+            [
+              100.54929426274657,
+              13.862743862023274
+            ],
+            [
+              100.54927927631282,
+              13.860484168415242
+            ],
+            [
+              100.54696650227555,
+              13.860498798675804
+            ],
+            [
+              100.54698146635924,
+              13.86275849476112
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r08-c11",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r09-c01",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.5238386151085,
+              13.860643900272777
+            ],
+            [
+              100.52615141577562,
+              13.860629488379157
+            ],
+            [
+              100.52613665549315,
+              13.858369769732816
+            ],
+            [
+              100.52382387717334,
+              13.858384179186169
+            ],
+            [
+              100.5238386151085,
+              13.860643900272777
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r09-c01",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r09-c02",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.52615141577562,
+              13.860629488379157
+            ],
+            [
+              100.52846421379775,
+              13.860615054648328
+            ],
+            [
+              100.52844943116811,
+              13.858355338445943
+            ],
+            [
+              100.52613665549315,
+              13.858369769732816
+            ],
+            [
+              100.52615141577562,
+              13.860629488379157
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r09-c02",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r09-c07",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.53771537935656,
+              13.86055710135516
+            ],
+            [
+              100.54002816409378,
+              13.860542558439986
+            ],
+            [
+              100.54001326973008,
+              13.858282854512868
+            ],
+            [
+              100.53770050733941,
+              13.858297394965595
+            ],
+            [
+              100.53771537935656,
+              13.86055710135516
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r09-c07",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r09-c08",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.54002816409378,
+              13.860542558439986
+            ],
+            [
+              100.54234094616204,
+              13.860527993688295
+            ],
+            [
+              100.54232602945189,
+              13.858268292227319
+            ],
+            [
+              100.54001326973008,
+              13.858282854512868
+            ],
+            [
+              100.54002816409378,
+              13.860542558439986
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r09-c08",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r09-c09",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.54234094616204,
+              13.860527993688295
+            ],
+            [
+              100.5446537255573,
+              13.860513407100195
+            ],
+            [
+              100.54463878650081,
+              13.858253708109057
+            ],
+            [
+              100.54232602945189,
+              13.858268292227319
+            ],
+            [
+              100.54234094616204,
+              13.860527993688295
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r09-c09",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r09-c10",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.5446537255573,
+              13.860513407100195
+            ],
+            [
+              100.54696650227555,
+              13.860498798675804
+            ],
+            [
+              100.54695154087288,
+              13.858239102158208
+            ],
+            [
+              100.54463878650081,
+              13.858253708109057
+            ],
+            [
+              100.5446537255573,
+              13.860513407100195
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r09-c10",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r10-c00",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.52151109621269,
+              13.858398566805892
+            ],
+            [
+              100.52382387717334,
+              13.858384179186169
+            ],
+            [
+              100.52380914187903,
+              13.856124457667805
+            ],
+            [
+              100.52149638326179,
+              13.856138842851005
+            ],
+            [
+              100.52151109621269,
+              13.858398566805892
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r10-c00",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r10-c01",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.52382387717334,
+              13.858384179186169
+            ],
+            [
+              100.52613665549315,
+              13.858369769732816
+            ],
+            [
+              100.52612189785553,
+              13.856110050654667
+            ],
+            [
+              100.52380914187903,
+              13.856124457667805
+            ],
+            [
+              100.52382387717334,
+              13.858384179186169
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r10-c01",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Theos02-housing-review-r11-c00",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.52149638326179,
+              13.856138842851005
+            ],
+            [
+              100.52380914187903,
+              13.856124457667805
+            ],
+            [
+              100.52379440922543,
+              13.853864735717742
+            ],
+            [
+              100.52148167294762,
+              13.853879118464466
+            ],
+            [
+              100.52149638326179,
+              13.856138842851005
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "policy_decision": "exclude_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "human_review_status": "pending",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "observed_on": "2026-10-25",
+        "source_review_cell": "Theos02-r11-c00",
+        "reason": "Individual housing and yard context in paired source/overlay review. Conservative 250m review-cell exclusion, not cadastral boundaries; may remove shared roadside green too."
+      }
+    }
+  ]
+}

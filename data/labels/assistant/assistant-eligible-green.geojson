@@ -1,0 +1,2785 @@
+{
+  "type": "FeatureCollection",
+  "target": "eligible_green",
+  "status": "assistant_conservative_policy_labels_not_public_ownership_ground_truth",
+  "source_selection": "regular spatial grid on original TIFF; labels interpreted from RGB, not prediction masks",
+  "limitations": [
+    "Residential-context vegetation is excluded conservatively by user policy; no cadastral claim.",
+    "No positive public-park labels can be established from RGB alone.",
+    "Not a complete training set; needs independent review and positive references."
+  ],
+  "features": [
+    {
+      "type": "Feature",
+      "id": "assistant-label-001",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.58301828666549,
+              13.93253054593011
+            ],
+            [
+              100.58315709367959,
+              13.932529643725667
+            ],
+            [
+              100.58315632390962,
+              13.93241666153659
+            ],
+            [
+              100.58301751696294,
+              13.932417563733432
+            ],
+            [
+              100.58301828666549,
+              13.93253054593011
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "uncertain",
+        "object_type": "possible_water",
+        "origin": "assistant_visual",
+        "review_status": "uncertain",
+        "certainty": "uncertain",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos00-region-0-0",
+        "split": "train",
+        "source_crop": "Theos00-01",
+        "crop_box": [
+          100,
+          45,
+          30,
+          25
+        ],
+        "source_window": [
+          15061,
+          13301,
+          30,
+          25
+        ],
+        "core_pixels": 750,
+        "area_m2": 187.5,
+        "interpretation": "Public green-space eligibility cannot be established from RGB vegetation alone.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "uncertain",
+        "vegetation_object_type": "possible_water",
+        "policy_decision": "withhold_public_eligibility"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-002",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.58276335490622,
+              13.931786487090495
+            ],
+            [
+              100.58281887754218,
+              13.931786126295165
+            ],
+            [
+              100.58281850815115,
+              13.93173189483234
+            ],
+            [
+              100.58276298552815,
+              13.931732255626208
+            ],
+            [
+              100.58276335490622,
+              13.931786487090495
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "uncertain",
+        "object_type": "shadow_or_canopy",
+        "origin": "assistant_visual",
+        "review_status": "uncertain",
+        "certainty": "uncertain",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos00-region-0-0",
+        "split": "train",
+        "source_crop": "Theos00-01",
+        "crop_box": [
+          46,
+          210,
+          12,
+          12
+        ],
+        "source_window": [
+          15007,
+          13466,
+          12,
+          12
+        ],
+        "core_pixels": 144,
+        "area_m2": 36.0,
+        "interpretation": "Public green-space eligibility cannot be established from RGB vegetation alone.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "uncertain",
+        "vegetation_object_type": "shadow_or_canopy",
+        "policy_decision": "withhold_public_eligibility"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-003",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.58282235605189,
+              13.932296805891117
+            ],
+            [
+              100.58289638639323,
+              13.932296324792691
+            ],
+            [
+              100.58289620168145,
+              13.932269209063467
+            ],
+            [
+              100.58282217134874,
+              13.93226969016092
+            ],
+            [
+              100.58282235605189,
+              13.932296805891117
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "object_type": "bright_roof",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos00-region-0-0",
+        "split": "train",
+        "source_crop": "Theos00-01",
+        "crop_box": [
+          58,
+          97,
+          16,
+          6
+        ],
+        "source_window": [
+          15019,
+          13353,
+          16,
+          6
+        ],
+        "core_pixels": 96,
+        "area_m2": 24.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "bright_roof",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-004",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.58978715224251,
+              13.932445782923915
+            ],
+            [
+              100.58984267484632,
+              13.932445420511131
+            ],
+            [
+              100.58984230379826,
+              13.932391189236453
+            ],
+            [
+              100.5897867812074,
+              13.93239155164777
+            ],
+            [
+              100.58978715224251,
+              13.932445782923915
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "object_type": "blue_roof",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos00-region-0-1",
+        "split": "train",
+        "source_crop": "Theos00-02",
+        "crop_box": [
+          63,
+          54,
+          12,
+          12
+        ],
+        "source_window": [
+          16524,
+          13310,
+          12,
+          12
+        ],
+        "core_pixels": 144,
+        "area_m2": 36.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "blue_roof",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-005",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.59010939501582,
+              13.93220414723733
+            ],
+            [
+              100.59015566379708,
+              13.932203845171486
+            ],
+            [
+              100.5901554163873,
+              13.932167690993193
+            ],
+            [
+              100.59010914761323,
+              13.932167993058222
+            ],
+            [
+              100.59010939501582,
+              13.93220414723733
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "object_type": "vegetation_in_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "certainty": "policy_exclusion",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos00-region-0-1",
+        "split": "train",
+        "source_crop": "Theos00-02",
+        "crop_box": [
+          133,
+          107,
+          10,
+          8
+        ],
+        "source_window": [
+          16594,
+          13363,
+          10,
+          8
+        ],
+        "core_pixels": 80,
+        "area_m2": 20.0,
+        "interpretation": "Source crop shows vegetation within compact housing context. Excluded under conservative user policy; private title not confirmed.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "positive",
+        "vegetation_object_type": "tree_shrub",
+        "policy_decision": "exclude_residential_context"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-006",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.59699430175154,
+              13.93217718031345
+            ],
+            [
+              100.59707758526727,
+              13.932176634236065
+            ],
+            [
+              100.5970773367813,
+              13.932140480179935
+            ],
+            [
+              100.59699405327852,
+              13.932141026255847
+            ],
+            [
+              100.59699430175154,
+              13.93217718031345
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "object_type": "dark_roof",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos00-region-0-2",
+        "split": "validation",
+        "source_crop": "Theos00-03",
+        "crop_box": [
+          121,
+          103,
+          18,
+          8
+        ],
+        "source_window": [
+          18082,
+          13359,
+          18,
+          8
+        ],
+        "core_pixels": 144,
+        "area_m2": 36.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "dark_roof",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-007",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.59717105438537,
+              13.932311605153405
+            ],
+            [
+              100.59721732302842,
+              13.932311301744159
+            ],
+            [
+              100.59721701239079,
+              13.93226610917757
+            ],
+            [
+              100.59717074375672,
+              13.932266412585795
+            ],
+            [
+              100.59717105438537,
+              13.932311605153405
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "object_type": "vegetation_in_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "certainty": "policy_exclusion",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos00-region-0-2",
+        "split": "validation",
+        "source_crop": "Theos00-03",
+        "crop_box": [
+          159,
+          73,
+          10,
+          10
+        ],
+        "source_window": [
+          18120,
+          13329,
+          10,
+          10
+        ],
+        "core_pixels": 100,
+        "area_m2": 25.0,
+        "interpretation": "Source crop shows vegetation within compact housing context. Excluded under conservative user policy; private title not confirmed.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "positive",
+        "vegetation_object_type": "tree_shrub",
+        "policy_decision": "exclude_residential_context"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-008",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.60350200919636,
+              13.931804504737016
+            ],
+            [
+              100.60356678495383,
+              13.931804078293526
+            ],
+            [
+              100.6035663483496,
+              13.931740808894693
+            ],
+            [
+              100.60350157260974,
+              13.931741235336169
+            ],
+            [
+              100.60350200919636,
+              13.931804504737016
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "object_type": "vegetation_in_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "certainty": "policy_exclusion",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos00-region-0-3",
+        "split": "test",
+        "source_crop": "Theos00-04",
+        "crop_box": [
+          28,
+          176,
+          14,
+          14
+        ],
+        "source_window": [
+          19489,
+          13432,
+          14,
+          14
+        ],
+        "core_pixels": 196,
+        "area_m2": 49.0,
+        "interpretation": "Source crop shows vegetation within compact housing context. Excluded under conservative user policy; private title not confirmed.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "positive",
+        "vegetation_object_type": "tree_shrub",
+        "policy_decision": "exclude_residential_context"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-009",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.60440893200726,
+              13.931807571443894
+            ],
+            [
+              100.6044644540612,
+              13.931807205715197
+            ],
+            [
+              100.60446407961933,
+              13.93175297482588
+            ],
+            [
+              100.60440855757834,
+              13.931753340553097
+            ],
+            [
+              100.60440893200726,
+              13.931807571443894
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "object_type": "bright_roof",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos00-region-0-3",
+        "split": "test",
+        "source_crop": "Theos00-04",
+        "crop_box": [
+          224,
+          174,
+          12,
+          12
+        ],
+        "source_window": [
+          19685,
+          13430,
+          12,
+          12
+        ],
+        "core_pixels": 144,
+        "area_m2": 36.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "bright_roof",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-010",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.58279381176118,
+              13.918589375758978
+            ],
+            [
+              100.58285858449277,
+              13.91858895521218
+            ],
+            [
+              100.58285815395053,
+              13.918525685105056
+            ],
+            [
+              100.58279338123654,
+              13.918526105649871
+            ],
+            [
+              100.58279381176118,
+              13.918589375758978
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "object_type": "vegetation_in_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "certainty": "policy_exclusion",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos00-region-2-0",
+        "split": "train",
+        "source_crop": "Theos00-09",
+        "crop_box": [
+          72,
+          130,
+          14,
+          14
+        ],
+        "source_window": [
+          15033,
+          16386,
+          14,
+          14
+        ],
+        "core_pixels": 196,
+        "area_m2": 49.0,
+        "interpretation": "Source crop shows vegetation within compact housing context. Excluded under conservative user policy; private title not confirmed.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "positive",
+        "vegetation_object_type": "tree_shrub",
+        "policy_decision": "exclude_residential_context"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-011",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.58344224656446,
+              13.918689113234572
+            ],
+            [
+              100.5835255257999,
+              13.918688572303136
+            ],
+            [
+              100.58352527967003,
+              13.918652417968243
+            ],
+            [
+              100.58344200044753,
+              13.918652958898223
+            ],
+            [
+              100.58344224656446,
+              13.918689113234572
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "object_type": "bright_roof",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos00-region-2-0",
+        "split": "train",
+        "source_crop": "Theos00-09",
+        "crop_box": [
+          212,
+          107,
+          18,
+          8
+        ],
+        "source_window": [
+          15173,
+          16363,
+          18,
+          8
+        ],
+        "core_pixels": 144,
+        "area_m2": 36.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "bright_roof",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-012",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.60428570039471,
+              13.91864322847109
+            ],
+            [
+              100.60430420669968,
+              13.918643106685069
+            ],
+            [
+              100.60430395734181,
+              13.918606952717072
+            ],
+            [
+              100.60428545103973,
+              13.918607074502768
+            ],
+            [
+              100.60428570039471,
+              13.91864322847109
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "object_type": "aircraft",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos00-region-2-3",
+        "split": "test",
+        "source_crop": "Theos00-12",
+        "crop_box": [
+          217,
+          87,
+          4,
+          8
+        ],
+        "source_window": [
+          19678,
+          16343,
+          4,
+          8
+        ],
+        "core_pixels": 32,
+        "area_m2": 8.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "aircraft",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-013",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.60398706089899,
+              13.91894799682232
+            ],
+            [
+              100.60407033939126,
+              13.918947448864408
+            ],
+            [
+              100.60406984073758,
+              13.918875140921793
+            ],
+            [
+              100.60398656227119,
+              13.918875688876744
+            ],
+            [
+              100.60398706089899,
+              13.91894799682232
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "object_type": "pavement",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos00-region-2-3",
+        "split": "test",
+        "source_crop": "Theos00-12",
+        "crop_box": [
+          152,
+          20,
+          18,
+          16
+        ],
+        "source_window": [
+          19613,
+          16276,
+          18,
+          16
+        ],
+        "core_pixels": 288,
+        "area_m2": 72.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "pavement",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-014",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.58983333455552,
+              13.91145250470112
+            ],
+            [
+              100.5898981050791,
+              13.91145208249651
+            ],
+            [
+              100.58989767285318,
+              13.911388812569019
+            ],
+            [
+              100.5898329023472,
+              13.911389234771637
+            ],
+            [
+              100.58983333455552,
+              13.91145250470112
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "uncertain",
+        "object_type": "tree_shrub",
+        "origin": "assistant_visual",
+        "review_status": "uncertain",
+        "certainty": "uncertain",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos00-region-3-1",
+        "split": "train",
+        "source_crop": "Theos00-14",
+        "crop_box": [
+          104,
+          199,
+          14,
+          14
+        ],
+        "source_window": [
+          16565,
+          17955,
+          14,
+          14
+        ],
+        "core_pixels": 196,
+        "area_m2": 49.0,
+        "interpretation": "Public green-space eligibility cannot be established from RGB vegetation alone.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "positive",
+        "vegetation_object_type": "tree_shrub",
+        "policy_decision": "withhold_public_eligibility"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-015",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.5894866308228,
+              13.91217336209597
+            ],
+            [
+              100.58952364267168,
+              13.91217312087866
+            ],
+            [
+              100.58952345746539,
+              13.912146005192142
+            ],
+            [
+              100.5894864456208,
+              13.912146246408964
+            ],
+            [
+              100.5894866308228,
+              13.91217336209597
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "object_type": "bright_roof",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos00-region-3-1",
+        "split": "train",
+        "source_crop": "Theos00-14",
+        "crop_box": [
+          28,
+          40,
+          8,
+          6
+        ],
+        "source_window": [
+          16489,
+          17796,
+          8,
+          6
+        ],
+        "core_pixels": 48,
+        "area_m2": 12.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "bright_roof",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-016",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.59695009769582,
+              13.91159130962502
+            ],
+            [
+              100.59698710931727,
+              13.911591067285293
+            ],
+            [
+              100.59698686122722,
+              13.91155491316665
+            ],
+            [
+              100.59694984961152,
+              13.911555155505722
+            ],
+            [
+              100.59695009769582,
+              13.91159130962502
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "object_type": "pavement",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos00-region-3-2",
+        "split": "validation",
+        "source_crop": "Theos00-15",
+        "crop_box": [
+          142,
+          158,
+          8,
+          8
+        ],
+        "source_window": [
+          18103,
+          17914,
+          8,
+          8
+        ],
+        "core_pixels": 64,
+        "area_m2": 16.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "pavement",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-017",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.6039184261481,
+              13.911676648513827
+            ],
+            [
+              100.6039646905336,
+              13.911676344265
+            ],
+            [
+              100.60396431677088,
+              13.911622113273006
+            ],
+            [
+              100.60391805239615,
+              13.911622417520599
+            ],
+            [
+              100.6039184261481,
+              13.911676648513827
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "object_type": "pavement",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos00-region-3-3",
+        "split": "test",
+        "source_crop": "Theos00-16",
+        "crop_box": [
+          148,
+          129,
+          10,
+          12
+        ],
+        "source_window": [
+          19609,
+          17885,
+          10,
+          12
+        ],
+        "core_pixels": 120,
+        "area_m2": 30.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "pavement",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-018",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.88649280688668,
+              12.6949353936751
+            ],
+            [
+              100.88651121774897,
+              12.694935262833695
+            ],
+            [
+              100.88651108448308,
+              12.694917186843101
+            ],
+            [
+              100.88649267362209,
+              12.694917317684316
+            ],
+            [
+              100.88649280688668,
+              12.6949353936751
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "object_type": "blue_roof",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos01-region-0-0",
+        "split": "train",
+        "source_crop": "Theos01-01",
+        "crop_box": [
+          103,
+          165,
+          4,
+          4
+        ],
+        "source_window": [
+          14521,
+          12113,
+          4,
+          4
+        ],
+        "core_pixels": 16,
+        "area_m2": 4.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "blue_roof",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-019",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.88617268791317,
+              12.694594206596305
+            ],
+            [
+              100.88621871501572,
+              12.694593879554523
+            ],
+            [
+              100.88621838191227,
+              12.694548689569194
+            ],
+            [
+              100.88617235481784,
+              12.694549016609775
+            ],
+            [
+              100.88617268791317,
+              12.694594206596305
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "object_type": "vegetation_in_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "certainty": "policy_exclusion",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos01-region-0-0",
+        "split": "train",
+        "source_crop": "Theos01-01",
+        "crop_box": [
+          34,
+          241,
+          10,
+          10
+        ],
+        "source_window": [
+          14452,
+          12189,
+          10,
+          10
+        ],
+        "core_pixels": 100,
+        "area_m2": 25.0,
+        "interpretation": "Source crop shows vegetation within compact housing context. Excluded under conservative user policy; private title not confirmed.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "positive",
+        "vegetation_object_type": "tree_shrub",
+        "policy_decision": "exclude_residential_context"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-020",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.90043111320037,
+              12.69501674030474
+            ],
+            [
+              100.90049555071658,
+              12.695016278969046
+            ],
+            [
+              100.90049508082745,
+              12.69495301351586
+            ],
+            [
+              100.90043064332714,
+              12.694953474849179
+            ],
+            [
+              100.90043111320037,
+              12.69501674030474
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "uncertain",
+        "object_type": "tree_shrub",
+        "origin": "assistant_visual",
+        "review_status": "uncertain",
+        "certainty": "uncertain",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos01-region-0-2",
+        "split": "validation",
+        "source_crop": "Theos01-03",
+        "crop_box": [
+          131,
+          125,
+          14,
+          14
+        ],
+        "source_window": [
+          17549,
+          12073,
+          14,
+          14
+        ],
+        "core_pixels": 196,
+        "area_m2": 49.0,
+        "interpretation": "Public green-space eligibility cannot be established from RGB vegetation alone.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "positive",
+        "vegetation_object_type": "tree_shrub",
+        "policy_decision": "withhold_public_eligibility"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-021",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.90078841019536,
+              12.694783702836919
+            ],
+            [
+              100.90088046368622,
+              12.69478304366918
+            ],
+            [
+              100.90087979229365,
+              12.694692664468933
+            ],
+            [
+              100.90078773883526,
+              12.694693323631832
+            ],
+            [
+              100.90078841019536,
+              12.694783702836919
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "uncertain",
+        "object_type": "mixed_soil_low_vegetation",
+        "origin": "assistant_visual",
+        "review_status": "uncertain",
+        "certainty": "uncertain",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos01-region-0-2",
+        "split": "validation",
+        "source_crop": "Theos01-03",
+        "crop_box": [
+          209,
+          176,
+          20,
+          20
+        ],
+        "source_window": [
+          17627,
+          12124,
+          20,
+          20
+        ],
+        "core_pixels": 400,
+        "area_m2": 100.0,
+        "interpretation": "Public green-space eligibility cannot be established from RGB vegetation alone.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "uncertain",
+        "vegetation_object_type": "mixed_soil_low_vegetation",
+        "policy_decision": "withhold_public_eligibility"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-022",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.90695569070907,
+              12.69531792600125
+            ],
+            [
+              100.9070017173855,
+              12.695317595338743
+            ],
+            [
+              100.9070013805933,
+              12.695272405901983
+            ],
+            [
+              100.90695535392497,
+              12.695272736563279
+            ],
+            [
+              100.90695569070907,
+              12.69531792600125
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "uncertain",
+        "object_type": "tree_shrub",
+        "origin": "assistant_visual",
+        "review_status": "uncertain",
+        "certainty": "uncertain",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos01-region-0-3",
+        "split": "test",
+        "source_crop": "Theos01-04",
+        "crop_box": [
+          48,
+          48,
+          10,
+          10
+        ],
+        "source_window": [
+          18966,
+          11996,
+          10,
+          10
+        ],
+        "core_pixels": 100,
+        "area_m2": 25.0,
+        "interpretation": "Public green-space eligibility cannot be established from RGB vegetation alone.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "positive",
+        "vegetation_object_type": "tree_shrub",
+        "policy_decision": "withhold_public_eligibility"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-023",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.90777441314356,
+              12.694620607850954
+            ],
+            [
+              100.90782043967258,
+              12.694620277064386
+            ],
+            [
+              100.90782010275495,
+              12.694575087646896
+            ],
+            [
+              100.90777407623405,
+              12.69457541843225
+            ],
+            [
+              100.90777441314356,
+              12.694620607850954
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "object_type": "blue_roof",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos01-region-0-3",
+        "split": "test",
+        "source_crop": "Theos01-04",
+        "crop_box": [
+          227,
+          201,
+          10,
+          10
+        ],
+        "source_window": [
+          19145,
+          12149,
+          10,
+          10
+        ],
+        "core_pixels": 100,
+        "area_m2": 25.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "blue_roof",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-024",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.89319150570265,
+              12.688280604340667
+            ],
+            [
+              100.89328355726227,
+              12.688279948136904
+            ],
+            [
+              100.89328288890589,
+              12.688189568493168
+            ],
+            [
+              100.8931908373787,
+              12.688190224692107
+            ],
+            [
+              100.89319150570265,
+              12.688280604340667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "uncertain",
+        "object_type": "mixed_soil_low_vegetation",
+        "origin": "assistant_visual",
+        "review_status": "uncertain",
+        "certainty": "uncertain",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos01-region-1-1",
+        "split": "train",
+        "source_crop": "Theos01-06",
+        "crop_box": [
+          69,
+          127,
+          20,
+          20
+        ],
+        "source_window": [
+          15987,
+          13575,
+          20,
+          20
+        ],
+        "core_pixels": 400,
+        "area_m2": 100.0,
+        "interpretation": "Public green-space eligibility cannot be established from RGB vegetation alone.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "uncertain",
+        "vegetation_object_type": "mixed_soil_low_vegetation",
+        "policy_decision": "withhold_public_eligibility"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-025",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.89308293987372,
+              12.687915321332468
+            ],
+            [
+              100.89313817073483,
+              12.687914927647741
+            ],
+            [
+              100.89313783659158,
+              12.687869737820902
+            ],
+            [
+              100.8930826057402,
+              12.687870131504184
+            ],
+            [
+              100.89308293987372,
+              12.687915321332468
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "uncertain",
+        "object_type": "tree_shrub",
+        "origin": "assistant_visual",
+        "review_status": "uncertain",
+        "certainty": "uncertain",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos01-region-1-1",
+        "split": "train",
+        "source_crop": "Theos01-06",
+        "crop_box": [
+          46,
+          208,
+          12,
+          10
+        ],
+        "source_window": [
+          15964,
+          13656,
+          12,
+          10
+        ],
+        "core_pixels": 120,
+        "area_m2": 30.0,
+        "interpretation": "Public green-space eligibility cannot be established from RGB vegetation alone.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "positive",
+        "vegetation_object_type": "tree_shrub",
+        "policy_decision": "withhold_public_eligibility"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-026",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.88627164423427,
+              12.68178598572973
+            ],
+            [
+              100.8863268739919,
+              12.681785593647167
+            ],
+            [
+              100.8863264746617,
+              12.681731365615992
+            ],
+            [
+              100.88627124491573,
+              12.681731757696827
+            ],
+            [
+              100.88627164423427,
+              12.68178598572973
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "uncertain",
+        "object_type": "tree_shrub",
+        "origin": "assistant_visual",
+        "review_status": "uncertain",
+        "certainty": "uncertain",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos01-region-2-0",
+        "split": "train",
+        "source_crop": "Theos01-09",
+        "crop_box": [
+          76,
+          75,
+          12,
+          12
+        ],
+        "source_window": [
+          14494,
+          15023,
+          12,
+          12
+        ],
+        "core_pixels": 144,
+        "area_m2": 36.0,
+        "interpretation": "Public green-space eligibility cannot be established from RGB vegetation alone.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "positive",
+        "vegetation_object_type": "tree_shrub",
+        "policy_decision": "withhold_public_eligibility"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-027",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.89358480150983,
+              12.68171137279961
+            ],
+            [
+              100.89364003101736,
+              12.681710979199766
+            ],
+            [
+              100.89363963014196,
+              12.681656751398084
+            ],
+            [
+              100.8935844006461,
+              12.68165714499619
+            ],
+            [
+              100.89358480150983,
+              12.68171137279961
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "object_type": "pavement",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos01-region-2-1",
+        "split": "train",
+        "source_crop": "Theos01-10",
+        "crop_box": [
+          165,
+          80,
+          12,
+          12
+        ],
+        "source_window": [
+          16083,
+          15028,
+          12,
+          12
+        ],
+        "core_pixels": 144,
+        "area_m2": 36.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "pavement",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-028",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.90745557619081,
+              12.67467972347369
+            ],
+            [
+              100.90751080373688,
+              12.674679327207786
+            ],
+            [
+              100.90751040015746,
+              12.674625099815792
+            ],
+            [
+              100.90745517262306,
+              12.67462549607995
+            ],
+            [
+              100.90745557619081,
+              12.67467972347369
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "uncertain",
+        "object_type": "mixed_soil_low_vegetation",
+        "origin": "assistant_visual",
+        "review_status": "uncertain",
+        "certainty": "uncertain",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos01-region-3-3",
+        "split": "test",
+        "source_crop": "Theos01-16",
+        "crop_box": [
+          190,
+          114,
+          12,
+          12
+        ],
+        "source_window": [
+          19108,
+          16562,
+          12,
+          12
+        ],
+        "core_pixels": 144,
+        "area_m2": 36.0,
+        "interpretation": "Public green-space eligibility cannot be established from RGB vegetation alone.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "uncertain",
+        "vegetation_object_type": "mixed_soil_low_vegetation",
+        "policy_decision": "withhold_public_eligibility"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-029",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.90678206082353,
+              12.674472153081018
+            ],
+            [
+              100.90683728834665,
+              12.674471756961356
+            ],
+            [
+              100.90683688491652,
+              12.674417529547163
+            ],
+            [
+              100.90678165740508,
+              12.674417925665077
+            ],
+            [
+              100.90678206082353,
+              12.674472153081018
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "uncertain",
+        "object_type": "tree_shrub",
+        "origin": "assistant_visual",
+        "review_status": "uncertain",
+        "certainty": "uncertain",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos01-region-3-3",
+        "split": "test",
+        "source_crop": "Theos01-16",
+        "crop_box": [
+          44,
+          161,
+          12,
+          12
+        ],
+        "source_window": [
+          18962,
+          16609,
+          12,
+          12
+        ],
+        "core_pixels": 144,
+        "area_m2": 36.0,
+        "interpretation": "Public green-space eligibility cannot be established from RGB vegetation alone.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "positive",
+        "vegetation_object_type": "tree_shrub",
+        "policy_decision": "withhold_public_eligibility"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-030",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.90694102679322,
+              12.67480543307481
+            ],
+            [
+              100.90698704978483,
+              12.674805102939844
+            ],
+            [
+              100.90698651182154,
+              12.67473279972901
+            ],
+            [
+              100.9069404888429,
+              12.67473312986203
+            ],
+            [
+              100.90694102679322,
+              12.67480543307481
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos01",
+        "class": "negative",
+        "object_type": "dirt_track",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos01-region-3-3",
+        "split": "test",
+        "source_crop": "Theos01-16",
+        "crop_box": [
+          78,
+          87,
+          10,
+          16
+        ],
+        "source_window": [
+          18996,
+          16535,
+          10,
+          16
+        ],
+        "core_pixels": 160,
+        "area_m2": 40.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "dirt_track",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-031",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.53881849833921,
+              13.877733664895752
+            ],
+            [
+              100.53886475743835,
+              13.877733373690042
+            ],
+            [
+              100.53886445936601,
+              13.877688179654292
+            ],
+            [
+              100.53881820027581,
+              13.877688470859015
+            ],
+            [
+              100.53881849833921,
+              13.877733664895752
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "uncertain",
+        "object_type": "brown_canopy_or_soil",
+        "origin": "assistant_visual",
+        "review_status": "uncertain",
+        "certainty": "uncertain",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos02-region-0-2",
+        "split": "validation",
+        "source_crop": "Theos02-03",
+        "crop_box": [
+          114,
+          98,
+          10,
+          10
+        ],
+        "source_window": [
+          9863,
+          3308,
+          10,
+          10
+        ],
+        "core_pixels": 100,
+        "area_m2": 25.0,
+        "interpretation": "Public green-space eligibility cannot be established from RGB vegetation alone.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "uncertain",
+        "vegetation_object_type": "brown_canopy_or_soil",
+        "policy_decision": "withhold_public_eligibility"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-032",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.53926061788113,
+              13.877432588376688
+            ],
+            [
+              100.53930687691094,
+              13.87743229709352
+            ],
+            [
+              100.53930657875972,
+              13.877387103066086
+            ],
+            [
+              100.53926031973886,
+              13.877387394348268
+            ],
+            [
+              100.53926061788113,
+              13.877432588376688
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "object_type": "dark_roof",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos02-region-0-2",
+        "split": "validation",
+        "source_crop": "Theos02-03",
+        "crop_box": [
+          210,
+          164,
+          10,
+          10
+        ],
+        "source_window": [
+          9959,
+          3374,
+          10,
+          10
+        ],
+        "core_pixels": 100,
+        "area_m2": 25.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "dark_roof",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-033",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.54582449405542,
+              13.877350493366926
+            ],
+            [
+              100.54586150115149,
+              13.877350259349003
+            ],
+            [
+              100.54586120173282,
+              13.877305065461332
+            ],
+            [
+              100.54582419464393,
+              13.877305299478465
+            ],
+            [
+              100.54582449405542,
+              13.877350493366926
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "object_type": "blue_roof",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos02-region-0-3",
+        "split": "test",
+        "source_crop": "Theos02-04",
+        "crop_box": [
+          129,
+          173,
+          8,
+          10
+        ],
+        "source_window": [
+          11378,
+          3383,
+          8,
+          10
+        ],
+        "core_pixels": 80,
+        "area_m2": 20.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "blue_roof",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-034",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.5245181621281,
+              13.864119778077296
+            ],
+            [
+              100.5245736701832,
+              13.864119432208595
+            ],
+            [
+              100.52457331617894,
+              13.864065198941567
+            ],
+            [
+              100.52451780813674,
+              13.86406554480886
+            ],
+            [
+              100.5245181621281,
+              13.864119778077296
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "object_type": "vegetation_in_residential_context",
+        "origin": "assistant_visual",
+        "review_status": "assistant_policy_interpreted",
+        "certainty": "policy_exclusion",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos02-region-2-0",
+        "split": "train",
+        "source_crop": "Theos02-09",
+        "crop_box": [
+          42,
+          130,
+          12,
+          12
+        ],
+        "source_window": [
+          6791,
+          6340,
+          12,
+          12
+        ],
+        "core_pixels": 144,
+        "area_m2": 36.0,
+        "interpretation": "Source crop shows vegetation within compact housing context. Excluded under conservative user policy; private title not confirmed.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "positive",
+        "vegetation_object_type": "tree_shrub",
+        "policy_decision": "exclude_residential_context"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-035",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.52499543246181,
+              13.864243353225401
+            ],
+            [
+              100.52504168918864,
+              13.864243064909633
+            ],
+            [
+              100.52504139409173,
+              13.864197870530802
+            ],
+            [
+              100.52499513737384,
+              13.864198158845594
+            ],
+            [
+              100.52499543246181,
+              13.864243353225401
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "object_type": "bright_roof",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos02-region-2-0",
+        "split": "train",
+        "source_crop": "Theos02-09",
+        "crop_box": [
+          145,
+          102,
+          10,
+          10
+        ],
+        "source_window": [
+          6894,
+          6312,
+          10,
+          10
+        ],
+        "core_pixels": 100,
+        "area_m2": 25.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "bright_roof",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-036",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.52496016196037,
+              13.85671388072123
+            ],
+            [
+              100.52500641719755,
+              13.856713592565463
+            ],
+            [
+              100.52500612227408,
+              13.856668398158146
+            ],
+            [
+              100.52495986704584,
+              13.856668686312938
+            ],
+            [
+              100.52496016196037,
+              13.85671388072123
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "uncertain",
+        "object_type": "vegetation_unspecified",
+        "origin": "assistant_visual",
+        "review_status": "uncertain",
+        "certainty": "uncertain",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos02-region-3-0",
+        "split": "train",
+        "source_crop": "Theos02-13",
+        "crop_box": [
+          148,
+          268,
+          10,
+          10
+        ],
+        "source_window": [
+          6897,
+          7978,
+          10,
+          10
+        ],
+        "core_pixels": 100,
+        "area_m2": 25.0,
+        "interpretation": "Public green-space eligibility cannot be established from RGB vegetation alone.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "positive",
+        "vegetation_object_type": "vegetation_unspecified",
+        "policy_decision": "withhold_public_eligibility"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-037",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.5252039633203,
+              13.857214040080008
+            ],
+            [
+              100.525296473981,
+              13.85721346364725
+            ],
+            [
+              100.52529588400083,
+              13.857123074848383
+            ],
+            [
+              100.52520337337587,
+              13.857123651277233
+            ],
+            [
+              100.5252039633203,
+              13.857214040080008
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "uncertain",
+        "object_type": "mixed_soil_low_vegetation",
+        "origin": "assistant_visual",
+        "review_status": "uncertain",
+        "certainty": "uncertain",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos02-region-3-0",
+        "split": "train",
+        "source_crop": "Theos02-13",
+        "crop_box": [
+          200,
+          157,
+          20,
+          20
+        ],
+        "source_window": [
+          6949,
+          7867,
+          20,
+          20
+        ],
+        "core_pixels": 400,
+        "area_m2": 100.0,
+        "interpretation": "Public green-space eligibility cannot be established from RGB vegetation alone.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "uncertain",
+        "vegetation_object_type": "mixed_soil_low_vegetation",
+        "policy_decision": "withhold_public_eligibility"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-038",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.53158914396079,
+              13.85747246642621
+            ],
+            [
+              100.53164465025304,
+              13.857472119116865
+            ],
+            [
+              100.53164429478461,
+              13.857417886000068
+            ],
+            [
+              100.53158878850522,
+              13.857418233308001
+            ],
+            [
+              100.53158914396079,
+              13.85747246642621
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "uncertain",
+        "object_type": "shadow_or_canopy",
+        "origin": "assistant_visual",
+        "review_status": "uncertain",
+        "certainty": "uncertain",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos02-region-3-1",
+        "split": "train",
+        "source_crop": "Theos02-14",
+        "crop_box": [
+          80,
+          91,
+          12,
+          12
+        ],
+        "source_window": [
+          8329,
+          7801,
+          12,
+          12
+        ],
+        "core_pixels": 144,
+        "area_m2": 36.0,
+        "interpretation": "Public green-space eligibility cannot be established from RGB vegetation alone.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "uncertain",
+        "vegetation_object_type": "shadow_or_canopy",
+        "policy_decision": "withhold_public_eligibility"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-039",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.5322548368415,
+              13.856704486065466
+            ],
+            [
+              100.53229184090337,
+              13.856704254439261
+            ],
+            [
+              100.53229160383779,
+              13.85666809903681
+            ],
+            [
+              100.53225459978165,
+              13.856668330662387
+            ],
+            [
+              100.5322548368415,
+              13.856704486065466
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "object_type": "pavement",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos02-region-3-1",
+        "split": "train",
+        "source_crop": "Theos02-14",
+        "crop_box": [
+          225,
+          260,
+          8,
+          8
+        ],
+        "source_window": [
+          8474,
+          7970,
+          8,
+          8
+        ],
+        "core_pixels": 64,
+        "area_m2": 16.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "pavement",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-040",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.54557569469507,
+              13.857235406681493
+            ],
+            [
+              100.54561269860848,
+              13.85723517303335
+            ],
+            [
+              100.54561233990545,
+              13.857180940272766
+            ],
+            [
+              100.54557533600062,
+              13.85718117391996
+            ],
+            [
+              100.54557569469507,
+              13.857235406681493
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "object_type": "water",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos02-region-3-3",
+        "split": "test",
+        "source_crop": "Theos02-16",
+        "crop_box": [
+          104,
+          124,
+          8,
+          12
+        ],
+        "source_window": [
+          11353,
+          7834,
+          8,
+          12
+        ],
+        "core_pixels": 96,
+        "area_m2": 24.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "water",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-041",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.54595131604431,
+              13.857377661406435
+            ],
+            [
+              100.5460253239023,
+              13.857377193986325
+            ],
+            [
+              100.54602508470039,
+              13.857341038820119
+            ],
+            [
+              100.54595107685384,
+              13.857341506238964
+            ],
+            [
+              100.54595131604431,
+              13.857377661406435
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos02",
+        "class": "negative",
+        "object_type": "bright_roof",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos02-region-3-3",
+        "split": "test",
+        "source_crop": "Theos02-16",
+        "crop_box": [
+          185,
+          92,
+          16,
+          8
+        ],
+        "source_window": [
+          11434,
+          7802,
+          16,
+          8
+        ],
+        "core_pixels": 128,
+        "area_m2": 32.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "bright_roof",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "assistant-label-042",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.59721520705679,
+              13.924596594537087
+            ],
+            [
+              100.5972707275847,
+              13.92459623063228
+            ],
+            [
+              100.59727047920933,
+              13.924560076557128
+            ],
+            [
+              100.59721495869005,
+              13.924560440460953
+            ],
+            [
+              100.59721520705679,
+              13.924596594537087
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "class": "negative",
+        "object_type": "green_roof",
+        "origin": "assistant_visual",
+        "review_status": "assistant_reviewed",
+        "certainty": "high",
+        "reviewer": "Codex (visual interpretation, not human field review)",
+        "human_review_status": "pending",
+        "human_reviewer": null,
+        "observed_on": "2026-10-25",
+        "region_id": "Theos00-region-1-2",
+        "split": "validation",
+        "source_crop": "Theos00-07",
+        "crop_box": [
+          180,
+          280,
+          12,
+          8
+        ],
+        "source_window": [
+          18141,
+          15036,
+          12,
+          8
+        ],
+        "core_pixels": 96,
+        "area_m2": 24.0,
+        "interpretation": "Nonvegetation core: exclude from green-space eligibility; original source interpretation retained.",
+        "public_access": "unknown",
+        "ownership": "unknown",
+        "vegetation_class": "negative",
+        "vegetation_object_type": "green_roof",
+        "policy_decision": "exclude_nonvegetation"
+      }
+    }
+  ]
+}

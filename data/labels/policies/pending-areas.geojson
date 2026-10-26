@@ -1,0 +1,69 @@
+{
+  "type": "FeatureCollection",
+  "purpose": "pending_review_areas",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "Theos00-airport-rail-review",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              100.6075327327984,
+              13.931217525531718
+            ],
+            [
+              100.60208170226566,
+              13.921762588014683
+            ],
+            [
+              100.59377189296981,
+              13.908258648251536
+            ],
+            [
+              100.60737344249779,
+              13.908169408678416
+            ],
+            [
+              100.6075327327984,
+              13.931217525531718
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "scene_id": "Theos00",
+        "decision": "withhold_from_main_total",
+        "origin": "assistant_visual",
+        "review_status": "needs_review",
+        "reason": "Visible airport/apron/rail corridor; user requested separate pending layer, excluded from main total.",
+        "ownership": "unknown",
+        "public_access": "unknown",
+        "preview_ring": [
+          [
+            1000,
+            150
+          ],
+          [
+            806,
+            500
+          ],
+          [
+            510,
+            1000
+          ],
+          [
+            1000,
+            1000
+          ],
+          [
+            1000,
+            150
+          ]
+        ],
+        "source_preview": "Theos00/source.png"
+      }
+    }
+  ]
+}

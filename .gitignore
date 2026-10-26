@@ -1,0 +1,14 @@
+*.tif
+*.csv
+.venv/
+pycache/
+.py[cod]
+.env
+.env.
+!.env.example
+Output/
+.tmp-nike/
+
+#Satellite TIFFs, including uppercase extensions
+*.[tT][iI][fF]
+*.[tT][iI][fF][fF]

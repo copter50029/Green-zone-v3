@@ -1,0 +1,20 @@
+{
+  "registry": "data/registry/parks15.geojson",
+  "scenes": [
+    {
+      "id": "Theosmain",
+      "path": "Images/Theosmain.tif",
+      "red_band": 3,
+      "nir_band": 4,
+      "imagery_date": "2024-10-12",
+      "context": "data/exclusions/Theosmain.geojson"
+    }
+  ],
+  "clean_radius_m": 3,
+  "building_buffer_m": 8,
+  "house_buffer_m": 20,
+  "residential_buffer_m": 10,
+  "policy_exclusions": "data/labels/policies/area-exclusions.geojson",
+  "pending_areas": "data/labels/policies/pending-areas.geojson",
+  "min_area_m2": 300
+}
