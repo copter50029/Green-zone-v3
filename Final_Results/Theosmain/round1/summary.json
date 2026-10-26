@@ -5,12 +5,12 @@
   ],
   "pixel_size_m": 0.5,
   "valid_area_km2": 32.0,
-  "green_area_m2": 2361161.75,
-  "green_area_rai": 1475.72609375,
-  "green_area_ha": 236.116175,
-  "green_pct_of_valid": 7.37863046875,
-  "patches_kept": 19579,
-  "patches_removed_as_noise": 44001,
-  "area_removed_as_noise_m2": 135895.0,
-  "raw_green_area_before_filter_m2": 2497056.75
+  "green_area_m2": 1753864.25,
+  "green_area_rai": 1096.16515625,
+  "green_area_ha": 175.386425,
+  "green_pct_of_valid": 5.48082578125,
+  "patches_kept": 1148,
+  "patches_removed_as_noise": 5678,
+  "area_removed_as_noise_m2": 498825.75,
+  "raw_green_area_before_filter_m2": 2252690.0
 }

@@ -1,4 +1,4 @@
-"""Display Green-zone-v2 masks and save PNG previews."""
+"""Display Green-zone-v3 masks and save PNG previews."""
 
 import argparse
 from pathlib import Path
@@ -11,7 +11,7 @@ from rasterio.enums import Resampling
 
 
 PROJECT_DIR = Path(__file__).resolve().parent
-OUTPUT_DIR = PROJECT_DIR / "Green-zone-v2" / "Final_Results"
+OUTPUT_DIR = PROJECT_DIR / "Green-zone-v3" / "Final_Results"
 SCENES = ("Theosmain")
 
 

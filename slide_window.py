@@ -1,5 +1,5 @@
 """
-GreenSight - GeoHackathon 2026
+GreenSight - GeoHackathon 2026 (Patched to align with main pipeline)
 
 Multi-round sliding-window green-zone scan over the tiles made by grid.py.
 
@@ -17,32 +17,11 @@ Multi-round sliding-window green-zone scan over the tiles made by grid.py.
   ends lower-left; LL / LR start at the bottom. The order changes only the order
   in which windows are visited and listed - never the result.
 
-  detector="hybrid" (default): NDVI + EVI per pixel (see make_hybrid_predictor).
-  detector="team": the team's detect_green() NDVI ratio (threshold 0.35; class 2 =
-      "uncertain" is NOT counted as green unless include_uncertain=True).
-
-  redetect_each_round=False (default): a per-pixel rule cannot change with window size,
-      so rounds 2-4 re-measure the round-1 mask with bigger windows (cheap).
-  redetect_each_round=True: run the full detection again every round and report how far
-      the rounds agree (use it for a CNN / sliding-window-attention predictor).
+  detector="team" (default): the team's detect_green() NDVI ratio (threshold 0.35).
+  detector="hybrid": NDVI + EVI per pixel (see make_hybrid_predictor).
 
 Install:
     pip install rasterio numpy scipy pillow matplotlib
-
-Outputs (OUT_DIR):
-    round{k}_windows.csv   one row per window cell in scan order: green m2 / rai / %,
-                           valid area, lon/lat of the 4 corners
-    rounds_summary.json    total green area per round, agreement with round 1
-    scan_overview.png      green % of every window cell, one panel per round
-    green_mask_round1.tif  1 = green, 0 = not green, 255 = NoData
-    round1/patches.csv, round1/summary.json, round1/green_preview.png
-
-HONEST LIMITS
-  * Thresholds (NDVI 0.3 / EVI 0.2, noise rules) are uncalibrated defaults.
-  * Larger windows read more pixels at once: a 4800 px window needs about 1-2 GB of
-    RAM while it is processed. Lower `growth` (e.g. [1, 1.5, 2, 2.5]) on small machines.
-  * Tiles skipped by grid.py as empty read back as NoData; the mosaic spans only the
-    bounding box of the kept tiles.
 """
 
 import os
@@ -61,18 +40,20 @@ from scipy.sparse import coo_matrix
 from scipy.sparse.csgraph import connected_components
 from PIL import Image
 
+try:
+    from greensight.detect import detect_green as greensight_detect_green
+    from greensight.cleanup import clean_saved_results as clean_saved_results
+except ImportError:  # pragma: no cover - fallback when run outside the repo root
+    greensight_detect_green = None
+    clean_saved_results = None
+
 BLUE, GREEN, RED, NIR = 1, 2, 3, 4
 NODATA_OUT = 255
 
 
 def detect_green(bands, *, red_band, nir_band, nodata=None, valid_mask=None,
                  exclude_mask=None, threshold=0.35, uncertain_threshold=0.15):
-    """Return uint8: 0=other, 1=candidate, 2=uncertain, 255=NoData.
-
-    bands shape is (bands,rows,columns); band numbers are one-based.
-    Unverified bands/raw DN produce an experimental ratio, not calibrated NDVI.
-    Roof/private-area exclusions require a bool mask on this same grid.
-    """
+    """Return uint8: 0=other, 1=candidate, 2=uncertain, 255=NoData."""
     image = np.asarray(bands)
     if image.ndim != 3 or not all(image.shape) or image.dtype.kind not in "uif":
         raise ValueError("Expected a non-empty numeric (bands,rows,columns) array")
@@ -103,17 +84,9 @@ def detect_green(bands, *, red_band, nir_band, nodata=None, valid_mask=None,
 
 
 # =================================================================
-# Per-pixel indices (copied unchanged from greensight_all.py)
+# Per-pixel indices
 # =================================================================
 def compute_ndvi_evi(nir, red, blue, scale_max, nodata=None):
-    """
-    NDVI and EVI from raw DN bands.
-    EVI = 2.5*(NIR-RED)/(NIR + 6*RED - 7.5*BLUE + 1) needs REFLECTANCE-scaled
-    inputs (0..1), so DN is divided by scale_max. NOTE: this is a DN scaling,
-    not true atmospherically-corrected surface reflectance - treat EVI
-    thresholds as needing calibration on your own tiles.
-    Returns ndvi, evi, valid (False where any band is NoData).
-    """
     valid = np.ones(nir.shape, dtype=bool)
     if nodata is not None:
         valid = (nir != nodata) & (red != nodata) & (blue != nodata)
@@ -131,17 +104,8 @@ def compute_ndvi_evi(nir, red, blue, scale_max, nodata=None):
     evi[~valid] = -1.0
     return ndvi, evi, valid
 
-def combine_vegetation(ndvi, evi, valid, mode="and", ndvi_thr=0.3, evi_thr=0.2,
-                       w_ndvi=0.5):
-    """
-    Hybrid NDVI+EVI decision.
-      "and"      : both must pass (strictest; best noise rejection, may lose
-                   sparse vegetation)
-      "or"       : either passes (most permissive)
-      "weighted" : w*NDVI_score + (1-w)*EVI_score >= 0.5, where each score is
-                   the index divided by its own threshold, capped at 1.
-    NoData pixels are never marked vegetation.
-    """
+
+def combine_vegetation(ndvi, evi, valid, mode="and", ndvi_thr=0.3, evi_thr=0.2, w_ndvi=0.5):
     a, b = ndvi >= ndvi_thr, evi >= evi_thr
     if mode == "and":
         veg = a & b
@@ -155,24 +119,18 @@ def combine_vegetation(ndvi, evi, valid, mode="and", ndvi_thr=0.3, evi_thr=0.2,
         raise ValueError("mode must be 'and', 'or' or 'weighted'")
     return veg & valid, a & valid, b & valid
 
+
 def get_pixel_area_m2(src):
-    """
-    Real-world area of ONE pixel in m2, from the raster's own affine transform
-    (|determinant|, so it stays right even if the image is rotated). Needs a
-    projected CRS in metres (e.g. UTM 47N, EPSG:32647 for Thailand).
-    """
     if src.crs is not None and src.crs.is_geographic:
-        raise ValueError("CRS is geographic (degrees). Reproject to a metric CRS "
-                         "(e.g. EPSG:32647) before measuring area.")
+        raise ValueError("CRS is geographic (degrees). Reproject to a metric CRS.")
     t = src.transform
     return abs(t.a * t.e - t.b * t.d)
 
 
 # =================================================================
-# PASS 1 - sliding windows with overlap (window = core + 2*margin)
+# PASS 1 - sliding windows with overlap
 # =================================================================
 def read_window_padded(src, row0, col0, rows, cols, bands, fill):
-    """Read a window that may stick out of the image; outside part = `fill`."""
     out = np.full((len(bands), rows, cols), fill, dtype="float32")
     r0, c0 = max(row0, 0), max(col0, 0)
     r1, c1 = min(row0 + rows, src.height), min(col0 + cols, src.width)
@@ -183,31 +141,20 @@ def read_window_padded(src, row0, col0, rows, cols, bands, fill):
 
 
 def make_hybrid_predictor(nodata, scale_max=4095, ndvi_thr=0.3, evi_thr=0.2, mode="and"):
-    """
-    Default per-window predictor: NDVI+EVI hybrid.
-    Input window: (3, h, w) float32 in the order [BLUE, RED, NIR].
-    Output: (green_bool, valid_bool), both (h, w).
-
-    >>> To use a CNN / the sliding-window-attention model instead, write another
-    >>> function with this same signature (window in -> (green, valid) out) and
-    >>> pass it as `predictor=`. The window overlap (margin) then gives the
-    >>> network context at the edge of every core, so there are no seams.
-    """
-    def predict(win):
+    def predict(win, exclude_mask=None):
         blue, red, nir = win[0], win[1], win[2]
         ndvi, evi, valid = compute_ndvi_evi(nir, red, blue, scale_max, nodata)
         green, _, _ = combine_vegetation(ndvi, evi, valid, mode, ndvi_thr, evi_thr)
+        if exclude_mask is not None:
+            green = green & ~exclude_mask
         return green, valid
     return predict
 
 
 def make_team_predictor(nodata, threshold=0.35, uncertain_threshold=0.15, include_uncertain=False):
-    """
-    Wrap the team's detect_green() (NDVI ratio, classes 0/1/2/255) as a predictor.
-    Input window: (3, h, w) in the order [BLUE, RED, NIR] -> red is band 2, nir band 3.
-    """
-    def predict(win):
+    def predict(win, exclude_mask=None):
         m = detect_green(win, red_band=2, nir_band=3, nodata=nodata,
+                         exclude_mask=exclude_mask,
                          threshold=threshold, uncertain_threshold=uncertain_threshold)
         valid = m != NODATA_OUT
         green = (m == 1) | ((m == 2) if include_uncertain else False)
@@ -221,13 +168,8 @@ def _mask_profile(src):
                 compress="deflate", tiled=False, blockysize=8, BIGTIFF="YES")
 
 
-def pass1_detect(src, raw_path, core, margin, predictor, smooth_iterations=0, log_every=10,
-                 row_order=None, col_order=None):
-    """
-    Slide a (core+2*margin) window over the image; keep only each window's core.
-    row_order / col_order: optional lists of window start offsets giving the visiting
-    order (default: top to bottom, left to right).
-    """
+def pass1_detect(src, raw_path, core, margin, predictor, smooth_iterations=6, log_every=10,
+                 row_order=None, col_order=None, exclude_mask=None):
     H, W = src.height, src.width
     fill = src.nodata if src.nodata is not None else 0
     row_order = list(range(0, H, core)) if row_order is None else list(row_order)
@@ -240,11 +182,21 @@ def pass1_detect(src, raw_path, core, margin, predictor, smooth_iterations=0, lo
             stripe = np.full((ch, W), NODATA_OUT, dtype="uint8")
             for c0 in col_order:
                 cw = min(core, W - c0)
-                win = read_window_padded(src, r0 - margin, c0 - margin,
-                                         ch + 2 * margin, cw + 2 * margin,
-                                         [BLUE, RED, NIR], fill)
-                green, valid = predictor(win)
-                if smooth_iterations:           # optional context-dependent clean-up
+                win_r0, win_c0 = r0 - margin, c0 - margin
+                win_h, win_w = ch + 2 * margin, cw + 2 * margin
+                win = read_window_padded(src, win_r0, win_c0, win_h, win_w, [BLUE, RED, NIR], fill)
+                
+                win_exclude = None
+                if exclude_mask is not None:
+                    win_exclude = np.full((win_h, win_w), False, dtype=bool)
+                    ex_r0, ex_c0 = max(win_r0, 0), max(win_c0, 0)
+                    ex_r1, ex_c1 = min(win_r0 + win_h, H), min(win_c0 + win_w, W)
+                    if ex_r1 > ex_r0 and ex_c1 > ex_c0:
+                        win_exclude[ex_r0 - win_r0:ex_r1 - win_r0, ex_c0 - win_c0:ex_c1 - win_c0] = \
+                            exclude_mask[ex_r0:ex_r1, ex_c0:ex_c1]
+
+                green, valid = predictor(win, exclude_mask=win_exclude)
+                if smooth_iterations:
                     green = ndimage.binary_opening(green, iterations=smooth_iterations) & valid
                 g = green[margin:margin + ch, margin:margin + cw]
                 v = valid[margin:margin + ch, margin:margin + cw]
@@ -257,15 +209,9 @@ def pass1_detect(src, raw_path, core, margin, predictor, smooth_iterations=0, lo
 
 
 # =================================================================
-# PASS 2 - exact patches across ALL seams (stripe labelling + union-find)
+# PASS 2 - exact patches across ALL seams
 # =================================================================
 def pass2_patches(raw_path, stripe_rows, log_every=20):
-    """
-    Label green connected components stripe by stripe, join components that
-    touch across stripe seams, and accumulate exact per-patch statistics
-    (pixel count and coordinate moments). Because the join is exact, a garden
-    cut by any seam is ONE patch with its true size and shape.
-    """
     with rasterio.open(raw_path) as src:
         H, W = src.height, src.width
         cols = np.arange(W, dtype=np.float64)
@@ -315,7 +261,7 @@ def pass2_patches(raw_path, stripe_rows, log_every=20):
     S = np.concatenate(stats) if stats else np.zeros((0, 6))
     N = len(S)
     if edges:
-        e = np.concatenate(edges) - 1                       # global label -> node index
+        e = np.concatenate(edges) - 1
         graph = coo_matrix((np.ones(len(e), dtype=np.int8), (e[:, 0], e[:, 1])), shape=(N, N))
         n_roots, comp = connected_components(graph, directed=False)
     else:
@@ -325,7 +271,6 @@ def pass2_patches(raw_path, stripe_rows, log_every=20):
 
 
 def decide_noise(res, noise_elongation_thresh, noise_max_size, noise_min_absolute_size):
-    """Merge partial stats into exact per-patch stats and flag the noise patches."""
     S, comp, R = res["stats"], res["comp"], res["n_roots"]
     tot = np.stack([np.bincount(comp, weights=S[:, i], minlength=R) for i in range(6)], axis=1)
     n = tot[:, 0]
@@ -338,13 +283,13 @@ def decide_noise(res, noise_elongation_thresh, noise_max_size, noise_min_absolut
     root = np.sqrt(np.maximum(half_tr ** 2 - (vrr * vcc - vrc ** 2), 0))
     lam_max = np.maximum(half_tr + root, 1e-6)
     lam_min = np.maximum(half_tr - root, 1e-6)
-    elong = np.sqrt(lam_max / lam_min)          # same measure as elongation_ratio()
+    elong = np.sqrt(lam_max / lam_min)
     remove = (n < noise_min_absolute_size) | ((n < noise_max_size) & (elong > noise_elongation_thresh))
     return {"count": n, "mean_r": mr, "mean_c": mc, "elong": elong, "remove": remove}
 
 
 # =================================================================
-# PASS 3 - write the final mask (noise patches removed everywhere)
+# PASS 3 - write final mask
 # =================================================================
 def pass3_write(raw_path, final_path, res, decision, stripe_rows, log_every=20):
     node_remove = decision["remove"][res["comp"]]
@@ -358,7 +303,7 @@ def pass3_write(raw_path, final_path, res, decision, stripe_rows, log_every=20):
             for k, r0 in enumerate(range(0, H, stripe_rows), start=1):
                 h = min(stripe_rows, H - r0)
                 raw = src.read(1, window=Window(0, r0, W, h))
-                lab, n = ndimage.label(raw == 1)         # same labelling as pass 2
+                lab, n = ndimage.label(raw == 1)
                 if n:
                     lookup = np.zeros(n + 1, dtype=bool)
                     off = offsets[k - 1]
@@ -370,7 +315,7 @@ def pass3_write(raw_path, final_path, res, decision, stripe_rows, log_every=20):
 
 
 # =================================================================
-# OUTPUTS - summary, patch table, preview
+# OUTPUTS
 # =================================================================
 def write_outputs(src, out_dir, res, decision, pixel_area_m2, raw_green_px,
                   min_report_m2, max_patches_csv, final_path, preview_px=2000):
@@ -411,7 +356,6 @@ def write_outputs(src, out_dir, res, decision, pixel_area_m2, raw_green_px,
                         round(n[i] * pixel_area_m2 / 1600.0, 3), f"{lo:.7f}", f"{la:.7f}",
                         round(float(decision["elong"][i]), 2)])
 
-    # small overview picture (nearest-neighbour sample of the final mask)
     with rasterio.open(final_path) as m:
         sc = max(max(m.width, m.height) / preview_px, 1.0)
         pw, ph = int(m.width / sc), int(m.height / sc)
@@ -424,18 +368,9 @@ def write_outputs(src, out_dir, res, decision, pixel_area_m2, raw_green_px,
 
 
 # =================================================================
-# STEP A - arrange the grid tiles back together (virtual mosaic)
+# STEP A - TileMosaic
 # =================================================================
 class TileMosaic:
-    """
-    The tiles written by grid.py, placed back at their grid positions and used
-    like ONE raster. Nothing is merged on disk: read(bands, window) pulls the
-    pixels from whichever tile files the window touches; grid cells that were
-    skipped as empty (all NoData) read back as NoData.
-
-    The mosaic covers the bounding box of the kept tiles, so a scene in a huge
-    NoData canvas does not drag the whole canvas along.
-    """
     def __init__(self, grid_index_csv, tiles_dir=None, cache_size=6):
         self.csv_path = os.path.abspath(grid_index_csv)
         self.base = os.path.dirname(self.csv_path)
@@ -463,7 +398,6 @@ class TileMosaic:
         self._cache = OrderedDict()
         self._cache_size = cache_size
 
-        # take georeferencing from the tiles and check they all agree
         ref = None
         for key, t in sorted(self.tiles.items()):
             with rasterio.open(t["path"]) as ds:
@@ -473,13 +407,11 @@ class TileMosaic:
                     self.crs, self.nodata, self.count, self.dtype = ds.crs, ds.nodata, ds.count, ds.dtypes[0]
                 else:
                     if not all(abs(a - b) < 1e-6 for a, b in zip(tuple(tf)[:6], tuple(ref)[:6])):
-                        raise ValueError(f"Tile {t['path']} does not line up with the others "
-                                         "(different grid origin or pixel size).")
+                        raise ValueError(f"Tile {t['path']} does not line up with the others.")
         self.transform = ref
         self.indexes = tuple(range(1, self.count + 1))
 
     def _resolve(self, recorded, gr, gc):
-        """The CSV stores the path from the machine that cut the grid; find the file here."""
         cands = [recorded,
                  os.path.join(self.tiles_dir, ntpath.basename(recorded)),
                  os.path.join(self.tiles_dir, f"tile_r{gr}_c{gc}.tif")]
@@ -489,7 +421,6 @@ class TileMosaic:
         raise FileNotFoundError(f"Tile file for grid r{gr} c{gc} not found. Looked in: {cands}")
 
     def layout(self):
-        """Text picture of how the tiles are arranged (# = tile present, . = empty cell)."""
         grs = sorted({t["gr"] for t in self.tiles.values()})
         gcs = sorted({t["gc"] for t in self.tiles.values()})
         have = {(t["gr"], t["gc"]) for t in self.tiles.values()}
@@ -511,14 +442,12 @@ class TileMosaic:
         return ds
 
     def read(self, indexes, window):
-        """Same call shape as rasterio's dataset.read(indexes, window=...)."""
         single = isinstance(indexes, int)
         bands = [indexes] if single else list(indexes)
         r0, c0 = int(window.row_off), int(window.col_off)
         h, w = int(window.height), int(window.width)
         fill = self.nodata if self.nodata is not None else 0
         out = np.full((len(bands), h, w), fill, dtype=self.dtype)
-        # original-image coordinates of the requested window
         R0, C0 = r0 + self.row0, c0 + self.col0
         gr_lo, gr_hi = R0 // self._tile_h, (R0 + h - 1) // self._tile_h
         gc_lo, gc_hi = C0 // self._tile_w, (C0 + w - 1) // self._tile_w
@@ -544,7 +473,7 @@ class TileMosaic:
 
 
 # =================================================================
-# STEP B - scan order and per-window green statistics
+# STEP B & C - Scan and Multiround Execution
 # =================================================================
 def scan_offsets(size, step, reverse=False):
     starts = list(range(0, size, step))
@@ -552,13 +481,6 @@ def scan_offsets(size, step, reverse=False):
 
 
 def scan_orders(H, W, core, start_corner="UL"):
-    """
-    Visiting order of the windows: sweep along a row, then step to the next row.
-      UL : start upper-left,  sweep left->right, rows top->bottom   (ends lower-right)
-      UR : start upper-right, sweep right->left, rows top->bottom   (ends lower-left)
-      LL : start lower-left,  sweep left->right, rows bottom->top   (ends upper-right)
-      LR : start lower-right, sweep right->left, rows bottom->top   (ends upper-left)
-    """
     if start_corner not in ("UL", "UR", "LL", "LR"):
         raise ValueError("start_corner must be UL, UR, LL or LR")
     rows = scan_offsets(H, core, reverse=start_corner in ("LL", "LR"))
@@ -567,10 +489,6 @@ def scan_orders(H, W, core, start_corner="UL"):
 
 
 def window_stats(mask_path, mosaic, core, start_corner, round_no, pixel_area_m2):
-    """
-    One row per window cell (core x core), in scan order:
-    green / valid area, % green, and lon/lat of the cell's 4 corners.
-    """
     rows_order, cols_order = scan_orders(mosaic.height, mosaic.width, core, start_corner)
     out, idx = [], 0
     with rasterio.open(mask_path) as m:
@@ -612,7 +530,6 @@ def save_window_csv(stats, path):
 
 
 def mask_agreement(path_a, path_b, stripe_rows=512):
-    """How many pixels differ between two masks of the same grid (streaming)."""
     diff = total = 0
     with rasterio.open(path_a) as a, rasterio.open(path_b) as b:
         for r0 in range(0, a.height, stripe_rows):
@@ -625,7 +542,6 @@ def mask_agreement(path_a, path_b, stripe_rows=512):
 
 
 def save_overview(rounds_info, path):
-    """One panel per round: green % of every window cell (north up)."""
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -650,29 +566,13 @@ def save_overview(rounds_info, path):
     plt.close(fig)
 
 
-# =================================================================
-# STEP C - the multi-round scan
-# =================================================================
 def scan_green(grid_index_csv, out_dir, rounds=4, core=1000, margin=100, growth=None,
                start_corner="UL", redetect_each_round=False, stripe_rows=512,
                scale_max=4095, ndvi_threshold=0.3, evi_threshold=0.2, hybrid_mode="and",
-               noise_elongation_thresh=4.0, noise_max_size=5000, noise_min_absolute_size=25,
-               smooth_iterations=0, predictor=None, detector="hybrid",
-               team_threshold=0.35, include_uncertain=False, min_report_m2=500.0,
-               max_patches_csv=100000, tiles_dir=None, keep_raw=False):
-    """
-    1. Arrange the grid.py tiles into one mosaic.
-    2. Round 1: slide a (core + 2*margin) window (default 1200 px) over the mosaic in
-       scan order -> detect green, join patches across seams, measure area per window.
-    3. Rounds 2..N: same scan with a LARGER window (default x2, x3, x4 = 2400, 3600,
-       4800 px; core and margin grow with it).
-         redetect_each_round=False : reuse the round-1 mask and re-measure it with the
-                                     bigger windows (cheap; identical detection for the
-                                     per-pixel NDVI/EVI rule).
-         redetect_each_round=True  : run the full detection again with each round's
-                                     windows (needed when `predictor` is a CNN /
-                                     attention model whose output depends on the window).
-    """
+               noise_elongation_thresh=4.0, noise_max_size=5000, noise_min_absolute_size=1200,
+               smooth_iterations=6, predictor=None, detector="team",
+               team_threshold=0.35, include_uncertain=False, min_report_m2=300.0,
+               max_patches_csv=100000, tiles_dir=None, keep_raw=False, exclude_mask=None):
     os.makedirs(out_dir, exist_ok=True)
     growth = growth or list(range(1, rounds + 1))
     if len(growth) != rounds:
@@ -686,11 +586,6 @@ def scan_green(grid_index_csv, out_dir, rounds=4, core=1000, margin=100, growth=
           f"({mosaic.width * px_m / 1000:.2f} x {mosaic.height * px_m / 1000:.2f} km), "
           f"{mosaic.count} bands, CRS {mosaic.crs}")
     print(mosaic.layout())
-    print(f"Scan starts at {start_corner}: " + {
-        "UL": "upper-left, left->right, rows top->bottom",
-        "UR": "upper-right, right->left, rows top->bottom",
-        "LL": "lower-left, left->right, rows bottom->top",
-        "LR": "lower-right, right->left, rows bottom->top"}[start_corner])
 
     if predictor is None:
         if detector == "team":
@@ -701,7 +596,7 @@ def scan_green(grid_index_csv, out_dir, rounds=4, core=1000, margin=100, growth=
                                               evi_threshold, hybrid_mode)
         else:
             raise ValueError("detector must be 'hybrid' or 'team'")
-    print(f"Detector: {'custom predictor' if detector not in ('hybrid','team') else detector}")
+    print(f"Detector: {detector}")
     rounds_info, mask_paths = [], []
     for k, g in enumerate(growth, start=1):
         c_k, m_k = int(core * g), int(margin * g)
@@ -715,7 +610,7 @@ def scan_green(grid_index_csv, out_dir, rounds=4, core=1000, margin=100, growth=
             rows_o, cols_o = scan_orders(mosaic.height, mosaic.width, c_k, start_corner)
             print("PASS 1/3: sliding-window detection")
             pass1_detect(mosaic, raw_path, c_k, m_k, predictor, smooth_iterations,
-                         row_order=rows_o, col_order=cols_o)
+                         row_order=rows_o, col_order=cols_o, exclude_mask=exclude_mask)
             print("PASS 2/3: joining patches across all window seams")
             res = pass2_patches(raw_path, stripe_rows)
             decision = decide_noise(res, noise_elongation_thresh, noise_max_size, noise_min_absolute_size)
@@ -733,8 +628,7 @@ def scan_green(grid_index_csv, out_dir, rounds=4, core=1000, margin=100, growth=
         else:
             summary = rounds_info[0]["summary"]
             mask_paths.append(mask_path)
-            print("Reusing the round-1 mask (per-pixel rule: detection does not depend on the "
-                  "window); re-measuring with the larger windows.")
+            print("Reusing the round-1 mask; re-measuring with larger windows.")
 
         stats = window_stats(mask_path, mosaic, c_k, start_corner, k, pixel_area)
         save_window_csv(stats, os.path.join(out_dir, f"round{k}_windows.csv"))
@@ -745,7 +639,6 @@ def scan_green(grid_index_csv, out_dir, rounds=4, core=1000, margin=100, growth=
                             "pixel_size_m": px_m, "n_windows": len(stats), "stats": stats,
                             "summary": summary, "mask": mask_path, "window_green_m2_sum": tot_g})
 
-    # cross-round comparison
     table = []
     for ri in rounds_info:
         row = {"round": ri["round"], "window_px": ri["window_px"],
@@ -773,8 +666,6 @@ def scan_green(grid_index_csv, out_dir, rounds=4, core=1000, margin=100, growth=
     for r in table:
         print(f"{r['round']:>5} {r['window_px']:>9} {r['n_windows']:>8} {r['green_m2']:>14,.0f} "
               f"{r['green_pct_of_valid']:>8.2f} {r['pixels_different_from_round1']:>14,}")
-    print(f"\nOutputs in {out_dir}: round*_windows.csv, rounds_summary.json, scan_overview.png, "
-          f"green_mask_round*.tif, round1/patches.csv")
     mosaic.close()
     return table
 
@@ -784,10 +675,18 @@ if __name__ == "__main__":
     GRID_DIR = os.path.join(PROJECT_DIR, "Output", "grid_2000")
     OUT_DIR = os.path.join(PROJECT_DIR, "Final_Results")
     SCENES = ("Theosmain",)
-    START_CORNER = "UL"          # UL, UR, LL or LR (see scan_orders)
-    ROUNDS = 4                   # round 1 = 1200 px window, then 2400, 3600, 4800
+    START_CORNER = "UL"
+    ROUNDS = 4
     for scene in SCENES:
         grid_index = os.path.join(GRID_DIR, scene, "grid_index.csv")
         scene_out_dir = os.path.join(OUT_DIR, scene)
         scan_green(grid_index, scene_out_dir, rounds=ROUNDS, core=1000, margin=100,
-                   start_corner=START_CORNER, redetect_each_round=False)
+                   start_corner=START_CORNER, redetect_each_round=False,
+                   detector="team", team_threshold=0.40,
+                   smooth_iterations=6, noise_min_absolute_size=1200,
+                   min_report_m2=300.0)
+        # After the scan: mark the registered parks that have green on the ground and
+        # draw their access circles (S 500 m, M 1 km, L 3 km, XL 5 km).
+        from greensight.park_mark import mark_parks_after_scan
+        mark_parks_after_scan(scene_out_dir,
+                              os.path.join(PROJECT_DIR, "data", "registry", "suanluang-parks.geojson"))
