@@ -1,5 +1,5 @@
 {
-  "registry": "data/registry/parks15.geojson",
+  "registry": "data/registry/suanluang-parks.geojson",
   "scenes": [
     {
       "id": "Theosmain",

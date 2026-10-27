@@ -23,7 +23,7 @@ if __name__ == '__main__':
     parser.add_argument('--min-area-m2',type=float,default=300)
     parser.add_argument('--red-band', type=int)
     parser.add_argument('--nir-band', type=int)
-    parser.add_argument('--registry', default='data/registry/parks15.geojson')
+    parser.add_argument('--registry', default='data/registry/suanluang-parks.geojson')
     parser.add_argument('--policy-exclusions', default='data/labels/policies/area-exclusions.geojson')
     parser.add_argument('--pending-areas',default='data/labels/policies/pending-areas.geojson')
     parser.add_argument('--exclude')

@@ -13,7 +13,7 @@
 
 Reference: https://greener.bangkok.go.th/en/map-15-minute-garden/
 
-`registry/parks15.geojson` is the 2026-10-23 snapshot: 528 valid-coordinate entries from 530 rows. Rows 59 and 93 had unusable coordinates. Source details and the original marker SHA256 are inside the file. Row IDs should not be assumed stable across refreshes.
+`registry/suanluang-parks.geojson` contains the 11 supplied Suan Luang district park records used by the backend configuration. The records include parks with different owners; registry presence does not confirm public access or current status. Keep attribution and source details with the data.
 
 Do not replace human references with assistant labels or policy masks. Keep attribution and snapshot dates. No matching points does not prove that an image has no parks.
 

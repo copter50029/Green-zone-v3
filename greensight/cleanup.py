@@ -12,7 +12,7 @@ from .pending import separate_pending,write_pending
 from .exclusions import exclude_context, exclude_policy_areas
 
 
-def clean_saved_results(run_dir, out_dir, *, clean_radius_m=2, registry_path='data/registry/parks15.geojson',
+def clean_saved_results(run_dir, out_dir, *, clean_radius_m=2, registry_path='data/registry/suanluang-parks.geojson',
                         contexts=None, building_buffer_m=2, house_buffer_m=0, residential_buffer_m=0, policy_exclusions=None, pending_areas=None):
     """Remove narrow/small candidate fragments, recheck >=300m2, rebuild halos.
 

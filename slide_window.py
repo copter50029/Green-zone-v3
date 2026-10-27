@@ -29,6 +29,8 @@ import csv
 import json
 import time
 import ntpath
+import tempfile
+from datetime import datetime
 from collections import OrderedDict
 import numpy as np
 import rasterio
@@ -670,6 +672,13 @@ def scan_green(grid_index_csv, out_dir, rounds=4, core=1000, margin=100, growth=
     return table
 
 
+def _new_run_output_dir(results_dir, scene):
+    scene_dir = os.path.join(results_dir, scene)
+    os.makedirs(scene_dir, exist_ok=True)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+    return tempfile.mkdtemp(prefix=f"run_{timestamp}_", dir=scene_dir)
+
+
 if __name__ == "__main__":
     PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
     GRID_DIR = os.path.join(PROJECT_DIR, "Output", "grid_2000")
@@ -679,7 +688,8 @@ if __name__ == "__main__":
     ROUNDS = 4
     for scene in SCENES:
         grid_index = os.path.join(GRID_DIR, scene, "grid_index.csv")
-        scene_out_dir = os.path.join(OUT_DIR, scene)
+        scene_out_dir = _new_run_output_dir(OUT_DIR, scene)
+        print(f"Run outputs: {scene_out_dir}")
         scan_green(grid_index, scene_out_dir, rounds=ROUNDS, core=1000, margin=100,
                    start_corner=START_CORNER, redetect_each_round=False,
                    detector="team", team_threshold=0.40,
@@ -688,5 +698,8 @@ if __name__ == "__main__":
         # After the scan: mark the registered parks that have green on the ground and
         # draw their access circles (S 500 m, M 1 km, L 3 km, XL 5 km).
         from greensight.park_mark import mark_parks_after_scan
-        mark_parks_after_scan(scene_out_dir,
-                              os.path.join(PROJECT_DIR, "data", "registry", "suanluang-parks.geojson"))
+        parks_file = os.path.join(PROJECT_DIR, "data", "registry", "suanluang-parks.geojson")
+        mark_parks_after_scan(scene_out_dir, parks_file)
+        # Then group the green that is NOT a park (nearest neighbour) and circle each group.
+        from greensight.green_groups import group_green_after_scan
+        group_green_after_scan(scene_out_dir, parks_file)

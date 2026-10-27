@@ -10,9 +10,10 @@ from .scene import read_json,digest
 
 REFERENCE_PAGE = 'https://greener.bangkok.go.th/en/map-15-minute-garden/'
 DON_MUEANG = '\u0e40\u0e02\u0e15\u0e14\u0e2d\u0e19\u0e40\u0e21\u0e37\u0e2d\u0e07'
+SUAN_LUANG = '\u0e2a\u0e27\u0e19\u0e2b\u0e25\u0e27\u0e07'
 
 
-def find_parks_in_image(tif_path, registry_path='data/registry/parks15.geojson', *, district=None):
+def find_parks_in_image(tif_path, registry_path='data/registry/suanluang-parks.geojson', *, district=None):
     """Return WGS84 registry points inside valid pixels of ALL source bands.
 
     district='don-mueang' filters registry district metadata; it does not
@@ -20,13 +21,15 @@ def find_parks_in_image(tif_path, registry_path='data/registry/parks15.geojson',
     """
     tif_path=Path(tif_path);registry=read_json(registry_path)
     if registry.get('type')!='FeatureCollection':raise ValueError('Registry GeoJSON required')
-    district_name=DON_MUEANG if district=='don-mueang' else district
+    district_name={'don-mueang':DON_MUEANG,'suanluang':SUAN_LUANG}.get(district,district)
     features=[];excluded={'other_district':0,'invalid_point':0,'outside_image':0,'nodata':0};seen=set()
     with rasterio.open(tif_path) as src:
         if src.crs is None:raise ValueError('Source CRS is required')
         for original in registry['features']:
             props=original.get('properties') or {};geometry=original.get('geometry') or {}
-            if district_name and district_name not in props.get('districts',[]):
+            districts=props.get('districts',props.get('district',[]))
+            if isinstance(districts,str):districts=[districts]
+            if district_name and district_name not in districts:
                 excluded['other_district']+=1;continue
             identity=str(original.get('id') or props.get('id') or '')
             if not identity or identity in seen:raise ValueError('Unique registry IDs required')

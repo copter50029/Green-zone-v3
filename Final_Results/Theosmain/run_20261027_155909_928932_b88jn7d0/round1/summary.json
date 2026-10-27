@@ -1,0 +1,16 @@
+{
+  "image_px": [
+    14000,
+    12000
+  ],
+  "pixel_size_m": 0.5,
+  "valid_area_km2": 42.0,
+  "green_area_m2": 2248297.5,
+  "green_area_rai": 1405.1859375,
+  "green_area_ha": 224.82975,
+  "green_pct_of_valid": 5.353089285714286,
+  "patches_kept": 1554,
+  "patches_removed_as_noise": 7457,
+  "area_removed_as_noise_m2": 662128.0,
+  "raw_green_area_before_filter_m2": 2910425.5
+}

@@ -37,3 +37,23 @@ class ParkLookupTests(unittest.TestCase):
             result=find_parks_in_image(root/'valid.tif',registry)
             self.assertEqual(result['status'],'no_matching_registry_points_not_proof_no_parks')
             with self.assertRaises(ValueError):find_parks_in_image(root/'missing.tif',registry)
+
+    def test_suanluang_registry_singular_district_property(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);x,y=transform('EPSG:4326','EPSG:32647',[100.650043],[13.716853])
+            grid=from_origin(x[0]-10,y[0]+10,1,1)
+            with rasterio.open(root/'scene.tif','w',driver='GTiff',width=20,height=20,count=4,dtype='uint16',
+                               crs='EPSG:32647',transform=grid) as dst:
+                dst.write(np.ones((4,20,20),dtype='uint16'))
+            lon,lat=transform('EPSG:32647','EPSG:4326',[x[0]],[y[0]])
+            features=[
+                {'type':'Feature','id':'suanluang-01','geometry':{'type':'Point','coordinates':[lon[0],lat[0]]},
+                 'properties':{'district':'สวนหลวง','name':'Suan Luang park'}},
+                {'type':'Feature','id':'other','geometry':{'type':'Point','coordinates':[lon[0],lat[0]]},
+                 'properties':{'district':'other','name':'Other district park'}},
+            ]
+            registry=root/'parks.geojson'
+            registry.write_text(json.dumps({'type':'FeatureCollection','features':features}),encoding='utf-8')
+            result=find_parks_in_image(root/'scene.tif',registry,district='suanluang')
+            self.assertEqual([feature['id'] for feature in result['features']],['suanluang-01'])
+            self.assertEqual(result['excluded_counts']['other_district'],1)

@@ -33,7 +33,7 @@ result = analyse_scene(
     'Images/Theos00.tif', 'Output/my-strict-scene',
     scene_id='Theos00', red_band=3, nir_band=4,
     context_path='data/exclusions/Theos00.geojson',
-    registry_path='data/registry/parks15.geojson',
+    registry_path='data/registry/suanluang-parks.geojson',
     building_buffer_m=8, house_buffer_m=20, residential_buffer_m=10,
     clean_radius_m=3,
 )

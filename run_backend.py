@@ -36,7 +36,7 @@ def main():
         config = prepare_config(args.config)
         print(f"Input paths and reference JSON passed: {len(config['scenes'])} scenes")
         return
-    run_backend(args.config, args.output, district=None if args.all_districts else 'don-mueang')
+    run_backend(args.config, args.output, district=None if args.all_districts else 'suanluang')
 
 
 if __name__ == "__main__":
