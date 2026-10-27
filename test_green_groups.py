@@ -44,7 +44,7 @@ class GreenGroupTests(unittest.TestCase):
         lo, la = lonlat(X0 + 505, Y0 - 902)
         parks = [{"name": "park", "lon": lo, "lat": la, "area_m2": 3600.0}]
         with tempfile.TemporaryDirectory() as d:
-            rows = group_green_patches(near + far + lone + on_park, parks, Path(d) / "o")
+            rows = group_green_patches(near + far + lone + on_park, parks, Path(d) / "o", isolated_circles=False)
             self.assertEqual(len(rows), 2)                                    # A and B only
             sizes = sorted(r["patches_in_group"] for r in rows)
             self.assertEqual(sizes, [4, 5])
@@ -66,6 +66,19 @@ class GreenGroupTests(unittest.TestCase):
             except ImportError:
                 pass
 
+    def test_isolated_patches_get_their_own_circle_and_elongated_patch_is_covered(self):
+        grp = [patch(X0 + 20 * i, Y0 - 500) for i in range(4)]
+        lone = dict(patch(X0 + 3000, Y0 - 500, area=1000.0), elongation=9.0)   # long thin strip
+        with tempfile.TemporaryDirectory() as d:
+            rows = group_green_patches(grp + [lone], [], Path(d) / "o", isolated_noise_area_m2=0)
+            kinds = sorted(r["kind"] for r in rows)
+            self.assertEqual(kinds, ["group", "isolated"])
+            iso = next(r for r in rows if r["kind"] == "isolated")
+            self.assertAlmostEqual(iso["radius_m"], math.sqrt(1000.0 * 9.0 / math.pi), delta=0.2)   # ellipse reach, not 17.8 m
+            summ = json.loads((Path(d) / "o" / "summary.json").read_text())
+            self.assertEqual(summ["patches_not_in_any_circle"], 0)
+            self.assertEqual(summ["isolated_circles"], 1)
+
     def test_long_chain_is_split_so_no_circle_exceeds_max_radius(self):
         pts = np.array([(i * 50.0, 0.0) for i in range(60)])                  # 3 km chain, 50 m apart
         groups = nn_groups(pts, link_m=100.0, max_radius_m=300.0, min_link_m=15.0)
@@ -73,6 +86,32 @@ class GreenGroupTests(unittest.TestCase):
         self.assertGreater(len(groups), 1)
         for g in groups:
             self.assertLessEqual(min_enclosing_circle(pts[g])[2], 300.0 + 1e-6)
+
+    def test_small_patches_are_grouped_and_only_small_isolated_noise_is_suppressed(self):
+        patches = [
+            patch(X0, Y0, area=500.0),
+            patch(X0 + 10, Y0, area=500.0),
+            patch(X0 + 1000, Y0, area=1500.0),
+        ]
+        with tempfile.TemporaryDirectory() as d:
+            rows = group_green_patches(patches, [], Path(d) / "o", min_patches=2)
+            self.assertEqual(len(rows), 2)
+            group = next(row for row in rows if row["kind"] == "group")
+            isolated = next(row for row in rows if row["kind"] == "isolated")
+            self.assertEqual(group["patches_in_group"], 2)
+            self.assertEqual(group["green_m2_in_group"], 1000.0)
+            self.assertFalse(group["noise_suppressed"])
+            self.assertTrue(isolated["noise_suppressed"])
+            summary = json.loads((Path(d) / "o" / "summary.json").read_text())
+            self.assertEqual(summary["isolated_noise_groups"], 1)
+            self.assertEqual(summary["isolated_noise_patches"], 1)
+            self.assertEqual(summary["patches_not_in_any_circle"], 1)
+            self.assertEqual(summary["green_m2_isolated_noise"], 1500.0)
+            self.assertEqual(summary["green_m2_eligible_for_grouping"], 2500.0)
+            self.assertEqual(summary["green_m2_in_groups"], 1000.0)
+            self.assertEqual(summary["green_m2_not_in_any_circle"], 1500.0)
+            features = json.loads((Path(d) / "o" / "green_groups.geojson").read_text())["features"]
+            self.assertEqual(len(features), 2)
 
     def test_existing_output_folder_is_protected(self):
         with tempfile.TemporaryDirectory() as d:

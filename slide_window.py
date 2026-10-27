@@ -703,3 +703,6 @@ if __name__ == "__main__":
         # Then group the green that is NOT a park (nearest neighbour) and circle each group.
         from greensight.green_groups import group_green_after_scan
         group_green_after_scan(scene_out_dir, parks_file)
+        # Finally select GA-ranked candidate park sites from the cleaned green mask.
+        from ga_parks import run_ga_after_scan
+        run_ga_after_scan(scene_out_dir, parks_file)

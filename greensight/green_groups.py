@@ -15,9 +15,14 @@ Steps
   3. A group whose circle would be wider than `max_radius_m` is split again with a
      shorter link distance (x0.7 each time, down to `min_link_m`), so a city-wide chain
      of green does not become one giant circle.
-  4. Groups with fewer than `min_patches` patches are not circled.
-  5. Each group gets the smallest circle that holds all its patch centroids, widened by
-     the largest patch radius so the patches themselves sit inside the circle.
+  4. Groups with fewer than `min_patches` patches are "isolated": by default they are
+     still circled (kind = "isolated", drawn dashed) so that NO non-park green patch is
+     left outside a circle. `isolated_circles=False` leaves them out instead.
+  5. Each circle is the smallest circle that holds all its patch centroids, widened by
+     the largest patch reach. A patch's reach is sqrt(area x elongation / pi): the long
+     half-axis of an ellipse with the patch's area and elongation, so a long thin strip
+     is not cut off by its own circle (needs the `elongation` column of patches.csv;
+     without it the reach is the equal-area radius).
 
 Output (new folder): green_groups.png (picture, only if matplotlib is installed),
   green_groups.geojson (circles + centre points), green_groups.csv
@@ -29,6 +34,8 @@ HONEST LIMITS
   * patches_in_circle counts ALL non-park patches whose centroid falls in the circle,
     including ones that belong to a neighbouring group; patches_in_group counts only
     the group's own members.
+  * Small patches are included in nearest-neighbour grouping. Isolated groups with
+    a total area of 2,000 m2 or less are treated as noise and not drawn by default.
   * patches.csv only lists patches of at least `min_report_m2` (300 m2 in slide_window);
     smaller green is not part of any group.
   * Green here is vegetation (NDVI), not "free land"; roofs, roads and private gardens
@@ -54,9 +61,10 @@ def utm_crs_for(lon):
 
 
 def load_patches(path):
-    """[{'lon','lat','area_m2'}] from patches.csv (columns lon, lat, area_m2)."""
+    """[{'lon','lat','area_m2','elongation'}] from patches.csv (elongation optional, default 1)."""
     with open(path, newline="", encoding="utf-8-sig") as f:
-        rows = [{"lon": float(r["lon"]), "lat": float(r["lat"]), "area_m2": float(r["area_m2"])}
+        rows = [{"lon": float(r["lon"]), "lat": float(r["lat"]), "area_m2": float(r["area_m2"]),
+                 "elongation": float(r.get("elongation") or 1.0)}
                 for r in csv.DictReader(f)]
     return rows
 
@@ -128,7 +136,8 @@ def nn_groups(xy, link_m, max_radius_m, min_link_m):
 
 
 def group_green_patches(patches, parks, out_dir, link_m=100.0, max_radius_m=300.0, min_link_m=15.0,
-                        min_patches=3, park_buffer_m=30.0, crs=None, mask_path=None):
+                        min_patches=3, park_buffer_m=30.0, crs=None, mask_path=None,
+                        isolated_circles=True, isolated_noise_area_m2=2000.0):
     """Group non-park green patches and circle every group. Returns the list of group rows.
     mask_path: optional green mask (same projected CRS) drawn as the picture's background."""
     out = Path(out_dir)
@@ -140,10 +149,14 @@ def group_green_patches(patches, parks, out_dir, link_m=100.0, max_radius_m=300.
         parks = load_parks(parks)
     if not patches:
         raise ValueError("No patches to group")
+    if not math.isfinite(isolated_noise_area_m2) or isolated_noise_area_m2 < 0:
+        raise ValueError("isolated_noise_area_m2 must be a finite non-negative number")
     crs = crs or utm_crs_for(float(np.mean([p["lon"] for p in patches])))
     xs, ys = warp_transform("EPSG:4326", crs, [p["lon"] for p in patches], [p["lat"] for p in patches])
     xy = np.column_stack([xs, ys])
     area = np.array([p["area_m2"] for p in patches])
+    elong = np.array([max(float(p.get("elongation", 1.0)), 1.0) for p in patches])
+    reach_all = np.sqrt(area * elong / math.pi)          # long half-axis of the patch's equal-area ellipse
 
     # 1. remove patches that sit on a registered park
     on_park = np.zeros(len(patches), dtype=bool)
@@ -156,50 +169,106 @@ def group_green_patches(patches, parks, out_dir, link_m=100.0, max_radius_m=300.
             park_xy.append((p["lon"], p["lat"], p["name"]))
             park_m.append((x, y, p["area_m2"]))
     keep = np.where(~on_park)[0]
-    kxy, karea = xy[keep], area[keep]
+    kxy, karea, kreach = xy[keep], area[keep], reach_all[keep]
 
     # 2-3. nearest-neighbour groups, re-split when too wide
     groups = nn_groups(kxy, link_m, max_radius_m, min_link_m) if len(keep) else []
 
     rows, feats, plot_items = [], [], []
     cid = 0
+    noise_patches = 0
+    noise_area = 0.0
     ktree = cKDTree(kxy) if len(keep) else None
-    for g in sorted(groups, key=lambda m: -karea[m].sum()):
-        if len(g) < min_patches:
+    for g in sorted(groups, key=lambda m: (len(m) < min_patches, -karea[m].sum())):
+        kind = "group" if len(g) >= min_patches else "isolated"
+        if kind == "isolated" and not isolated_circles:
             continue
         cid += 1
+        group_area = float(karea[g].sum())
+        noise_suppressed = kind == "isolated" and group_area <= isolated_noise_area_m2
+        if noise_suppressed:
+            noise_patches += len(g)
+            noise_area += group_area
         cx, cy, r = min_enclosing_circle(kxy[g])
-        r += float(np.sqrt(karea[g].max() / math.pi))                 # patches fit inside the circle
+        r += float(kreach[g].max())                                   # patches fit inside the circle
         inside = ktree.query_ball_point([cx, cy], r)
         lon, lat = warp_transform(crs, "EPSG:4326", [cx], [cy])
-        row = {"cluster_id": cid, "center_lon": round(lon[0], 7), "center_lat": round(lat[0], 7),
+        row = {"cluster_id": cid, "kind": kind, "center_lon": round(lon[0], 7), "center_lat": round(lat[0], 7),
                "radius_m": round(r, 1), "patches_in_group": int(len(g)), "patches_in_circle": int(len(inside)),
-               "green_m2_in_group": round(float(karea[g].sum()), 1),
-               "green_m2_in_circle": round(float(karea[inside].sum()), 1)}
+               "green_m2_in_group": round(group_area, 1),
+               "green_m2_in_circle": round(float(karea[inside].sum()), 1),
+               "noise_suppressed": noise_suppressed}
         rows.append(row)
-        plot_items.append((cx, cy, r, row))
-        props = dict(row)
-        feats.append({"type": "Feature", "geometry": {"type": "Point", "coordinates": [lon[0], lat[0]]},
-                      "properties": {**props, "role": "center"}})
-        feats.append({"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [circle_lonlat(cx, cy, r, crs)]},
-                      "properties": {**props, "role": "group_circle"}})
+        if not noise_suppressed:
+            plot_items.append((cx, cy, r, row))
+            props = dict(row)
+            feats.append({"type": "Feature", "geometry": {"type": "Point", "coordinates": [lon[0], lat[0]]},
+                          "properties": {**props, "role": "center"}})
+            feats.append({"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [circle_lonlat(cx, cy, r, crs)]},
+                          "properties": {**props, "role": "group_circle"}})
 
     out.mkdir(parents=True)
     (out / "green_groups.geojson").write_text(
         json.dumps({"type": "FeatureCollection", "features": feats}, ensure_ascii=False) + "\n", encoding="utf-8")
     with (out / "green_groups.csv").open("w", newline="", encoding="utf-8-sig") as f:
-        w = csv.DictWriter(f, fieldnames=["cluster_id", "center_lon", "center_lat", "radius_m", "patches_in_group",
-                                          "patches_in_circle", "green_m2_in_group", "green_m2_in_circle"])
+        w = csv.DictWriter(f, fieldnames=["cluster_id", "kind", "center_lon", "center_lat", "radius_m", "patches_in_group",
+                                          "patches_in_circle", "green_m2_in_group", "green_m2_in_circle",
+                                          "noise_suppressed"])
         w.writeheader()
         w.writerows(rows)
+    n_in = int(sum(r["patches_in_group"] for r in rows))
+    non_park_area = float(karea.sum())
+    grouped_area = float(sum(r["green_m2_in_group"] for r in rows if not r["noise_suppressed"]))
     summary = {"patches_total": len(patches), "patches_on_parks_removed": int(on_park.sum()),
-               "patches_grouped": int(sum(r["patches_in_group"] for r in rows)),
-               "patches_not_in_any_circle": int(len(keep) - sum(r["patches_in_group"] for r in rows)),
-               "groups": len(rows), "link_m": link_m, "max_radius_m": max_radius_m, "min_patches": min_patches}
+               "patches_grouped": int(sum(r["patches_in_group"] for r in rows if r["kind"] == "group")),
+               "patches_isolated": int(sum(r["patches_in_group"] for r in rows if r["kind"] == "isolated")),
+               "isolated_noise_groups": int(sum(r["noise_suppressed"] for r in rows)),
+               "isolated_noise_patches": noise_patches,
+               "patches_not_in_any_circle": int(len(keep) - n_in + noise_patches),
+               "green_m2_total": round(float(area.sum()), 1),
+               "green_m2_on_parks_removed": round(float(area[on_park].sum()), 1),
+               "green_m2_non_park_total": round(non_park_area, 1),
+               "isolated_noise_area_m2": isolated_noise_area_m2,
+               "green_m2_isolated_noise": round(noise_area, 1),
+               "green_m2_eligible_for_grouping": round(float(karea.sum()), 1),
+               "green_m2_in_groups": round(grouped_area, 1),
+               "green_m2_not_in_any_circle": round(max(non_park_area - grouped_area, 0.0), 1),
+               "groups": sum(r["kind"] == "group" for r in rows),
+               "isolated_circles": sum(r["kind"] == "isolated" and not r["noise_suppressed"] for r in rows),
+               "link_m": link_m, "max_radius_m": max_radius_m, "min_patches": min_patches}
+    if mask_path:
+        cov = _mask_coverage(mask_path, plot_items, park_m, park_buffer_m, crs)
+        if cov is not None:
+            summary["green_px_outside_circles_pct"] = round(100 - cov, 2)
+            summary["green_px_inside_circles_pct"] = round(cov, 2)
     (out / "summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     _write_html(out / "green_groups_map.html", feats, park_xy, [(p["lon"], p["lat"]) for p in patches])
     _write_png(out / "green_groups.png", plot_items, park_m, crs, mask_path)
     return rows
+
+
+def _mask_coverage(mask_path, items, park_m, park_buffer_m, crs):
+    """% of the mask's green pixels (outside parks) that lie inside some circle (sampled <=1500 px)."""
+    import rasterio
+    with rasterio.open(mask_path) as m:
+        if m.crs is None or m.crs != rasterio.crs.CRS.from_string(crs):
+            return None
+        sc = max(max(m.width, m.height) / 1500, 1.0)
+        small = m.read(1, out_shape=(int(m.height / sc), int(m.width / sc)))
+        t = m.transform
+        rr, cc = np.nonzero(small == 1)
+        x = t.c + (cc + 0.5) * sc * t.a
+        y = t.f + (rr + 0.5) * sc * t.e
+    on_park = np.zeros(len(x), dtype=bool)
+    for px, py, a in park_m:
+        on_park |= np.hypot(x - px, y - py) <= math.sqrt(a / math.pi) + park_buffer_m
+    x, y = x[~on_park], y[~on_park]
+    if not len(x):
+        return None
+    inside = np.zeros(len(x), dtype=bool)
+    for cx, cy, r, _ in items:
+        inside |= np.hypot(x - cx, y - cy) <= r
+    return 100.0 * float(inside.mean())
 
 
 def _write_png(path, items, park_m, crs, mask_path=None):
@@ -235,9 +304,9 @@ def _write_png(path, items, park_m, crs, mask_path=None):
     for cx, cy, r, row in items:
         col = cmap(norm(row["green_m2_in_group"]))
         ax.add_patch(Circle((cx, cy), r, facecolor=col, edgecolor=col, alpha=0.35, lw=0, zorder=2))
-        ax.add_patch(Circle((cx, cy), r, fill=False, edgecolor=col, lw=1.2, zorder=3))
-    ax.plot([i[0] for i in items], [i[1] for i in items], ".", color="white", ms=3, zorder=4)
-    for i in np.argsort(-green)[:10]:
+        ax.add_patch(Circle((cx, cy), r, fill=False, edgecolor=col, lw=1.2, zorder=3,
+                            ls="--" if row["kind"] == "isolated" else "-"))
+    for i in [j for j in np.argsort(-green) if items[j][3]["kind"] == "group"][:10]:
         cx, cy, _, row = items[i]
         ax.annotate(str(row["cluster_id"]), (cx, cy), color="white", fontsize=8, ha="center",
                     va="bottom", xytext=(0, 4), textcoords="offset points", zorder=6)
@@ -246,7 +315,7 @@ def _write_png(path, items, park_m, crs, mask_path=None):
     ax.set_aspect("equal")
     ax.autoscale()
     ax.set_title(f"Non-park green groups: {len(items)} circles (colour = green area in the group; "
-                 f"numbers = 10 largest)\nwhite dot = group centre, green dot = registered park", fontsize=10)
+                 f"numbers = 10 largest)\ndashed = isolated patches (<3), green dot = registered park", fontsize=10)
     ax.set_xlabel(f"easting (m, {crs}) - metres east")
     ax.set_ylabel("northing (m) - metres north")
     fig.colorbar(ScalarMappable(norm=norm, cmap=cmap), ax=ax, shrink=0.8, label="green area in group (m2)")
@@ -294,9 +363,11 @@ def main(argv=None):
     p.add_argument("--link", type=float, default=100.0, help="neighbour distance in metres")
     p.add_argument("--max-radius", type=float, default=300.0, help="split groups wider than this (metres)")
     p.add_argument("--min-patches", type=int, default=3)
+    p.add_argument("--isolated-noise-area", type=float, default=2000.0,
+                   help="suppress isolated groups at or below this green area (m2)")
     a = p.parse_args(argv)
     for r in group_green_patches(a.patches_csv, a.parks, a.out_dir, link_m=a.link, max_radius_m=a.max_radius,
-                                 min_patches=a.min_patches):
+                                 min_patches=a.min_patches, isolated_noise_area_m2=a.isolated_noise_area):
         print(f"group {r['cluster_id']:>3}: centre ({r['center_lat']}, {r['center_lon']}) radius {r['radius_m']:>7} m, "
               f"{r['patches_in_group']} patches ({r['green_m2_in_group']} m2), {r['patches_in_circle']} inside circle")
 
